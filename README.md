@@ -1,3 +1,3 @@
 # nixos-config
 # My personal-used NixOS configuration
-  To use it, you can use git to clone it to your /etc/nixos as root member.
+  To use it, you have to clone these files and copy them as root to your /etc/nixos directory.
