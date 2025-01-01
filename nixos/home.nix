@@ -4,15 +4,57 @@
   home.username = "nixos";
   home.homeDirectory = "/home/nixos";
     imports = [
-     #./config/nixvim/start.nix
+
   ];
 
-  # 设置鼠标指针大小以及字体 DPI（适用于 4K 显示器）
-  xresources.properties = {
-    "Xcursor.size" = 16;
-    "Xft.dpi" = 172;
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Breeze-Dark";
+      package = pkgs.libsForQt5.breeze-gtk;
+    };
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.catppuccin-papirus-folders.override {
+        flavor = "mocha";
+        accent = "lavender";
+      };
+    };
+    cursorTheme = {
+      name = "Catppuccin-Mocha-Dark-Cursors";
+      package = pkgs.catppuccin-cursors.mochaDark;
+    };
+    gtk3 = {
+      extraConfig.gtk-application-prefer-dark-theme = true;
+    };
   };
 
+  home.pointerCursor = {
+    gtk.enable = true;
+    name = "Catppuccin-Mocha-Dark-Cursors";
+    package = pkgs.catppuccin-cursors.mochaDark;
+    size = 16;
+  };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      gtk-theme = "Breeze-Dark";
+      color-scheme = "prefer-dark";
+    };
+  };
+
+  qt = {
+    enable = true;
+        platformTheme.name = "gtk";
+    style = {
+      name = "gtk2";
+      package = pkgs.libsForQt5.breeze-qt5;
+    };
+  };
+
+  #xdg.configFile."Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini { }).generate "kvantum.kvconfig" {
+    #General.theme = "Catppuccin-Macchiato-Blue";
+  #};
 
   programs.zsh = {
     enable = true;
@@ -28,7 +70,7 @@
     cde = "cd /etc/nixos";
     ll = "ls -l";
     update = "cd /etc/nixos && sudo nixos-rebuild switch --flake .#";
-    garbage = "sudo nix-collect-garbage -d";
+    garbage = "sudo nix-collect-garbage -d && nix-collect-garbage -d";
     flake = "cd /etc/nixos && sudo nix flake update";
     };
   history.size = 10000;
@@ -42,7 +84,17 @@
 
 ###### START ################
 
-###### Games #############
+###### Dependences ##########
+
+    (catppuccin-kvantum.override {
+      accent = "blue";
+      variant = "macchiato";
+    })
+    papirus-folders
+    libsForQt5.qtstyleplugin-kvantum
+    libsForQt5.qt5ct # Magic for some Qt apps keep functionality.
+
+###### Games ################
 
     hmcl
 
@@ -58,7 +110,7 @@
 
 ###### Study ##################################
 
-    pkgs.geogebra
+    #pkgs.geogebra
 
 ###### Embedded development ###################
 

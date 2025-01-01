@@ -1,15 +1,15 @@
 { config, pkgs, ...}:
 {
-  #services.mpd = {
-  #enable = true;
-  #musicDirectory = "/home/nixos/Music";
-  #extraConfig = ''
-  #audio_output {
-  #  type "pipewire"
-  #  name "My PipeWire Output"
-  #  }
-  #'';
-  #};
+  services.mpd = {
+  enable = true;
+  musicDirectory = "/home/nixos/Music";
+  extraConfig = ''
+  audio_output {
+    type "pipewire"
+    name "My PipeWire Output"
+    }
+  '';
+  };
 
   # programs.ncmpcpp = {
   #  enable = true;

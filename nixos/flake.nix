@@ -46,13 +46,11 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.nixos = import ./home.nix;
-            #home-manager.extraSpecialArgs = inputs;
           }
           ./system/amdgpu.nix
           ./system/bootloader.nix
           ./system/bluetooth.nix
           ./system/configuration.nix
-          ./system/cursor.nix
           ./system/desktop.nix
           ./system/display-manager.nix
           ./system/flakeenable.nix
@@ -72,7 +70,6 @@
           ./system/secure-firewall.nix
           ./system/systempkgs.nix
           ./system/systemzsh.nix
-          ./system/theme.nix
           ./system/timezone.nix
           ./system/user.nix
           ./config/nixvim/start.nix
