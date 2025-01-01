@@ -1,18 +1,21 @@
-  { config, pkgs, ... }:
-  {
-   
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-   
+{ config, pkgs, ... }:
+
+{
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  
-  #enable electron-30.5.1
-  #nixpkgs.config.permittedInsecurePackages = [
-   # "electron-30.5.1"
-  #];
-   
-   }
+
+  #Enable Firewall
+  networking = {
+    nftables = {
+      enable = true;
+    };
+    firewall = {
+    enable = true;
+    allowedTCPPorts = [ 80 443 ];
+    allowedUDPPortRanges = [
+      { from = 4000; to = 4007; }
+      { from = 8000; to = 8010; }
+      ];
+    };
+  };
+}

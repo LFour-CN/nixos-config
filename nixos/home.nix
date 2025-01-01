@@ -55,7 +55,10 @@
     wiliwili
     libreoffice
     motrix
-    pkgs.github-desktop
+
+###### Study ##################################
+
+    pkgs.geogebra
 
 ###### Embedded development ###################
 

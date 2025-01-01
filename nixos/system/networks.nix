@@ -16,7 +16,7 @@
 
     # Enable networking
     networking = {
-    nameservers = [ "1.1.1.1" ];
+    nameservers = [ "1.1.1.1" "8.8.4.4" ];
     useDHCP = pkgs.lib.mkDefault true;
     #If using dhcpcd:
     dhcpcd.enable = true;
@@ -65,15 +65,15 @@
     };
 
 
-    #services.dnscrypt-proxy2 = {
-    #   enable = true;
-    #   settings = {
-    #   listen_addresses = [ "127.0.0.1:53" "[::1]:53" ];
+    services.dnscrypt-proxy2 = {
+       enable = true;
+       settings = {
+       listen_addresses = [ "127.0.0.1:53" "[::1]:53" ];
 
-    #  ipv6_servers = true;
-    #  require_dnssec = true;
+      ipv6_servers = true;
+      require_dnssec = true;
 
-        #sources.public-resolvers = {
+         #sources.public-resolvers = {
          #urls = [
          #"https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md"
          #"https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md"
@@ -83,11 +83,11 @@
          #};
 
       # You can choose a specific set of servers from https://github.com/DNSCrypt/dnscrypt-resolvers/blob/master/v3/public-resolvers.md
-    #  server_names = [ "cloudflare" "cloudflare-ipv6" "cloudflare-security" "cloudflare-security-ipv6" "adguard-dns-doh" "mullvad-adblock-doh" "mullvad-doh" "nextdns" "nextdns-ipv6" "quad9-dnscrypt-ipv4-filter-pri" "google" "google-ipv6" "ibksturm" ];
-    #  };
-    #};
+      server_names = [ "cloudflare" "cloudflare-ipv6" "cloudflare-security" "cloudflare-security-ipv6" "adguard-dns-doh" "mullvad-adblock-doh" "mullvad-doh" "nextdns" "nextdns-ipv6" "quad9-dnscrypt-ipv4-filter-pri" "google" "google-ipv6" "ibksturm" ];
+      };
+    };
 
-    #systemd.services.dnscrypt-proxy2.serviceConfig = {
-    #StateDirectory = "dnscrypt-proxy";
-    #  };
+    systemd.services.dnscrypt-proxy2.serviceConfig = {
+    StateDirectory = "dnscrypt-proxy";
+    };
 }

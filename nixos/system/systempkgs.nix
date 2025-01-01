@@ -25,6 +25,7 @@
     asciiquarium
     cowsay
     brightnessctl
+    dig
 
 ###### Daily #############
 
@@ -110,13 +111,13 @@
    #
    ### STM32 ###
    #
-    #stlink
+    stlink
     stm32flash
     stm32loader
     stlink-tool
-    #stlink-gui
-    #dotnet-sdk
-    #dotnet-runtime
+    stlink-gui
+    dotnet-sdk
+    dotnet-runtime
     #
     ### ESP32 ###
     #
