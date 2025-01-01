@@ -26,6 +26,10 @@
     cowsay
     brightnessctl
     dig
+    pavucontrol # PulseAudio Volume Control
+    pamixer # Command-line mixer for PulseAudio
+    bluez # Bluetooth support
+    bluez-tools # Bluetooth tools
 
 ###### Daily #############
 

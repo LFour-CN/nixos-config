@@ -48,6 +48,7 @@
             home-manager.users.nixos = import ./home.nix;
           }
           ./system/amdgpu.nix
+          ./system/audio.nix
           ./system/bootloader.nix
           ./system/bluetooth.nix
           ./system/configuration.nix
@@ -73,7 +74,6 @@
           ./system/timezone.nix
           ./system/user.nix
           ./config/nixvim/start.nix
-          ./system/video-music.nix
           ./system/virtualisation.nix
        ];
     };
