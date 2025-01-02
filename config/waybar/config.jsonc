@@ -2,33 +2,30 @@
 {
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 15, // Waybar height (to be removed for auto height)
+    "height": 10, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
+    "spacing": 2, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
         "hyprland/workspaces",
         "sway/mode",
         "sway/scratchpad",
         "custom/media",
+        "idle_inhibitor",
+        "backlight",
+        "network",
         "tray"
     ],
     "modules-center": [
         "hyprland/window"
     ],
     "modules-right": [
-        "idle_inhibitor",
-        "backlight",
         "pulseaudio",
         "bluetooth",
-        "network",
-        "power-profiles-daemon",
         "cpu",
         "memory",
         "disk",
         "temperature",
-        "keyboard-state",
-        "sway/language",
         "battery",
         "battery#bat2",
         "clock",
@@ -68,14 +65,14 @@
         "on-click": "wlogout -b 4",
         "tooltip": false
     },
-    
+
         // Harddisc space used
     "disk": {
         "interval": 30,
         "format": "{percentage_used}% 💿",
         "path": "/",
-        "on-click": "kitty -e htop"
-    }, 
+        //"on-click": "kitty -e htop"
+    },
 
 
         // Hyprland Window
