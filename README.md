@@ -6,3 +6,7 @@
 # For Hyprland configuration
   
   Just copy the config files to your user directory ~/.config/
+
+# With Backuup files
+
+  It exists for better data recovery, and if there are any issues with my latest NixOS configuration, it can be restored from the backup.
