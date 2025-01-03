@@ -19,6 +19,9 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     treefmt-nix.url = "github:numtide/treefmt-nix";
+
+    rust-overlay.url = "github:oxalica/rust-overlay";
+
  };
 
   outputs = {  self, nixpkgs, home-manager, nixvim, flake-parts, ... }:
@@ -33,6 +36,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.nixos = import ./home.nix;
           }
+
           ###### Hardware Configuration ###########
 
           ./system/hardware/amdgpu.nix
@@ -55,13 +59,14 @@
           ###### System Programs ###############
 
           ./system/programs/environment-variables.nix
-          ./system/programs/flatpak.nix
+          #./system/programs/flatpak.nix
           ./system/programs/llm.nix
           ./system/programs/lsp.nix
           ./system/programs/networks.nix
           ./system/programs/openssh.nix
           ./system/programs/powermanager.nix
           ./system/programs/programs.nix
+          #./system/programs/rust.nix
           ./system/programs/secure.nix
           ./system/programs/services.nix
           ./system/programs/virtualisation.nix

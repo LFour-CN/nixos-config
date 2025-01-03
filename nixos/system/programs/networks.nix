@@ -22,26 +22,35 @@
     dhcpcd.enable = true;
     dhcpcd.persistent = false;
     dhcpcd.extraConfig = "nohook resolv.conf";
+    
     # If using resolvconf:
       #    resolvconf = {
       #enable = true; # FIXME remember to delete /etc/resolv.conf if you disable `resolvconf`
       #useLocalResolver = true;
       #};
+      
     networkmanager = {
         enable = true;
         # If using NetworkManager:
-        dns = "none";
+        #dns = "none";
         wifi.backend = "iwd";
         wifi.powersave = false;
       };
+      
       wireless.iwd = {
         enable = true;
         settings = {
           #If using iwd:
-          Network.NameResolvingService = "none";
+          #Network.NameResolvingService = "none";
+          General = {
+             EnableNetworkConfiguration = true;
+      };
           IPv6 = {
             Enabled = true;
           };
+          Scan = {
+            DisablePeriodicScan = true;
+      };
           Settings = {
             AutoConnect = true;
           };
@@ -63,7 +72,6 @@
    networking.hosts = {
      "140.82.114.4" = ["github.com"];
     };
-
 
     services.dnscrypt-proxy2 = {
        enable = true;
@@ -90,4 +98,9 @@
     systemd.services.dnscrypt-proxy2.serviceConfig = {
     StateDirectory = "dnscrypt-proxy";
     };
+    
+    environment.systemPackages = with pkgs; [
+        iwgtk
+        impala
+  ];
 }

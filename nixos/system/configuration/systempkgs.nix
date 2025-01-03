@@ -37,7 +37,6 @@
     peazip
     pkgs.zsh
     htop
-    firefox
     starship
     gedit
     mpv

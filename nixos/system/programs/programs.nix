@@ -23,5 +23,7 @@
     viAlias = true;
     vimAlias = true;
   };
-
+ 
+ #Fwupd
+  services.fwupd.enable = true;
 }
