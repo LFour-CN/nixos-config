@@ -22,9 +22,11 @@
 
     rust-overlay.url = "github:oxalica/rust-overlay";
 
+    nnf.url = "github:thelegy/nixos-nftables-firewall";
+
  };
 
-  outputs = {  self, nixpkgs, home-manager, nixvim, flake-parts, ... }:
+  outputs = {  self, nixpkgs, home-manager, nixvim, flake-parts, nnf, ... }:
     {
      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
        system = "x86_64-linux";
@@ -36,6 +38,8 @@
             home-manager.useUserPackages = true;
             home-manager.users.nixos = import ./home.nix;
           }
+
+          nnf.nixosModules.default
 
           ###### Hardware Configuration ###########
 
@@ -58,6 +62,7 @@
           ################################
           ###### System Programs ###############
 
+          ./system/programs/attack.nix
           ./system/programs/environment-variables.nix
           #./system/programs/flatpak.nix
           ./system/programs/llm.nix

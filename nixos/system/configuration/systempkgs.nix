@@ -30,6 +30,7 @@
     pamixer # Command-line mixer for PulseAudio
     bluez # Bluetooth support
     bluez-tools # Bluetooth tools
+    arsenal
 
 ###### Daily #############
 
@@ -46,7 +47,6 @@
     tlp
     lshw
     p7zip
-    #emacs
 
 ###### Hyprland ###########
 

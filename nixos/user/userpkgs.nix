@@ -28,6 +28,7 @@
     wiliwili
     libreoffice
     motrix
+    netease-cloud-music-gtk
 
 ###### Study ##################################
 

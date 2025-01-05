@@ -1,7 +1,7 @@
 { config, pkgs, ...}:
 {
 
-  hardware.pulseaudio.enable = false; # Use Pipewire, the modern sound subsystem
+  services.pulseaudio.enable = false; # Use Pipewire, the modern sound subsystem
 
   security.rtkit.enable = true; # Enable RealtimeKit for audio purposes
 
@@ -13,7 +13,7 @@
     # Uncomment the following line if you want to use JACK applications
     # jack.enable = true;
   };
-  
+
   services.mpd = {
   enable = true;
   musicDirectory = "/home/nixos/Music";

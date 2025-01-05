@@ -4,72 +4,123 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  #Enable clamav-scanner
-    services.clamav.scanner = {
-    enable = true;
-    interval = "Sat *-*-* 04:00:00";
-  };
-
-  #Enable MAC Randomize
-  #systemd.services.macchanger = {
-    #enable = true;
-   # description = "Change MAC address";
-    #wantedBy = [ "multi-user.target" ];
-    #after = [ "network.target" ];
-   # serviceConfig = {
-   #   Type = "oneshot";
-    #  ExecStart = "${pkgs.macchanger}/bin/macchanger -r wlp0s20f3";
-    #  ExecStop = "${pkgs.macchanger}/bin/macchanger -p wlp0s20f3";
-    #  RemainAfterExit = true;
-   # };
-  #};
-
   #Enable Firewall
-  #networking = {
-   # nftables = {
-    #  enable = false;
-    #  ruleset = ''
-     #   table inet filter {
-      #    chain forward {
-      #      type filter hook forward priority 0; policy drop;
-    #        ct state related,established accept
-    #        iif "virbr0" oif != "virbr0" counter accept
-     #       oif "virbr0" counter masquerade
-    #      }
-   #     }
-   #   '';
-   # };
-   # firewall = {
-   # enable = false;
-   # allowedTCPPorts = [ 80 443 ];
-   # allowedUDPPortRanges = [
-    #  { from = 4000; to = 4007; }
-    #  { from = 8000; to = 8010; }
-    #  ];
+  networking = {
+    #firewall = {trustedInterfaces = [ "virbr0" ];};
+    #nat = {
+    #enable = true;
+    #internalInterfaces = [ "virbr0" ];
+    #externalInterface = "en4ps0";
+    #forwardPorts = [
+    #  {
+    #    sourcePort = 3389;
+    #    proto = "tcp";
+    #    destination = "192.168.122.81:3389";
+    #  }
+    #  {
+    #    sourcePort = 3389;
+    #    proto = "udp";
+    #    destination = "192.168.122.81:3389";
+    #  }
+    #];
     #};
-  #};
+    nftables = {
+     firewall = {
+      enable = true;
+        snippets = {
+          nnf-common.enable = true;
+          #nnf-dhcpv6.enable = true;
+          #nnf-drop.enable = true;
+          #nnf-icmp = {
+          #enable = true;
+          #ipv4Types = [];
+          #ipv6Types = [];
+          #};
+          #nnf-loopback.enable = true;
+          #nnf-nixos-firewall.enable = true;
+          #nnf-ssh.enable = true;
+        };
+      zones = {
+        uplink = {
+          interfaces = [ "en4ps0" "wlan0" "lo" "virbr0" "e1000e" "virtio" ];
+          };
+        local = {
+          parent = "uplink";
+          ipv4Addresses = [ "192.168.1.0/24" ];
+          };
+          #private = {
+          #interfaces = [];
+          #};
+          #banned = {
+          #ingressExpression = [
+              #"ip saddr @banlist"
+              #"ip6 saddr @banlist6"
+          #];
+          #egressExpression = [
+              # "ip daddr @banlist"
+              #"ip6 daddr @banlist6"
+          #];
+          #};
+      };
+      rules = {
+        http = {
+            from = "all";
+            to = [ "fw" ];
+            allowedTCPPorts = [ 80 443 ];
+            allowedUDPPortRanges = [ { from = 4000; to = 4007; } { from = 8000; to = 8010; } ];
+          };
+          mqtt = {
+          from = [ "local" ];
+          to = [ "fw" ];
+          allowedTCPPorts = [ 1883 ];
+          };
+          #private-ssh = {
+          #from = "all";
+          #to = [ "private" ];
+          #allowedTCPPorts = [ 22 ];
+          #};
+          #private-outgoing = {
+          #from = [ "private" ];
+          #to = [ "uplink" ];
+          #verdict = "accept";
+          #};
+          #ban = {
+          #from = ["banned"];
+          #to = "all";
+          #ruleType = "ban";
+          #extraLines = [
+          #  "counter drop"
+          #];
+          #};
+        };
+      };
+    };
+  };
 
    # Linux Kernel
   #boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
   #Enable SELinux
   boot.kernelParams = [
-    "splash"
-    "quiet"
-    "fbcon=nodefer"
-    "vt.global_cursor_default=0"
-    "kernel.modules_disabled=1"
-    "lsm=landlock,lockdown,yama,integrity,apparmor,bpf,tomoyo,selinux"
-    "usbcore.autosuspend=-1"
-    "video4linux"
-    "acpi_rev_override=5"
     "security=selinux"
-   ];
-
+  ];
+  #boot.kernelPatches = [ {
+  #      name = "selinux-config";
+  #      patch = null;
+  #      extraConfig = ''
+  #              SECURITY_SELINUX y
+  #              SECURITY_SELINUX_BOOTPARAM n
+  #              SECURITY_SELINUX_DISABLE n
+  #              SECURITY_SELINUX_DEVELOP y
+  #              SECURITY_SELINUX_AVC_STATS y
+  #              SECURITY_SELINUX_CHECKREQPROT_VALUE 0
+  #              DEFAULT_SECURITY_SELINUX n
+  #            '';
+  #      } ];
   systemd.package = pkgs.systemd.override { withSelinux = true; };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  #services.printing.enable = true;
   # services.avahi = {
   #   enable = true;
   #   nssmdns4 = true;
@@ -91,29 +142,29 @@
   #  '';
   #};
 
-  # Enable USB-specific packages
-  #environment.systemPackages = with pkgs; [
-  #  usbutils
-  #];
   # Enable Security Services
-  users.users.root.hashedPassword = "!";
-  security.tpm2 = {
-    enable = true;
-    pkcs11.enable = true;
-    tctiEnvironment.enable = true;
-  };
-  security.apparmor = {
-    enable = true;
-    packages = with pkgs; [
-      apparmor-utils
-      apparmor-profiles
-    ];
-  };
-  services.fail2ban.enable = true;
-  security.pam.services.hyprlock = {};
+  #users.users.root.hashedPassword = "!";
+  #security.tpm2 = {
+    #enable = true;
+    #pkcs11.enable = true;
+    #tctiEnvironment.enable = true;
+    #};
+  #security.apparmor = {
+    #enable = true;
+    #packages = with pkgs; [
+      #apparmor-utils
+      #apparmor-profiles
+      #];
+    #};
+  #services.fail2ban.enable = true;
+  #security.pam.services.hyprlock = {};
   # security.polkit.enable = true;
   programs.browserpass.enable = true;
   services.clamav = {
+    scanner = {
+      enable = true;
+      interval = "Sat *-*-* 04:00:00";
+    };
     daemon.enable = true;
     fangfrisch.enable = true;
     fangfrisch.interval = "daily";
@@ -132,10 +183,6 @@
         executable = "${lib.getBin pkgs.imv}/bin/imv";
         profile = "${pkgs.firejail}/etc/firejail/imv.profile";
       };
-      telegram-desktop = {
-        executable = "${lib.getBin pkgs.tdesktop}/bin/telegram-desktop";
-        profile = "${pkgs.firejail}/etc/firejail/telegram-desktop.profile";
-      };
       brave = {
         executable = "${lib.getBin pkgs.brave}/bin/brave";
         profile = "${pkgs.firejail}/etc/firejail/brave.profile";
@@ -144,8 +191,8 @@
   };
 
     # Enable Mullvad VPN
-  services.mullvad-vpn.enable = true;
-  services.mullvad-vpn.package = pkgs.mullvad-vpn; # `pkgs.mullvad` only provides the CLI tool, use `pkgs.mullvad-vpn` instead if you want to use the CLI and the GUI.
+  #services.mullvad-vpn.enable = true;
+  #services.mullvad-vpn.package = pkgs.mullvad-vpn; # `pkgs.mullvad` only provides the CLI tool, use `pkgs.mullvad-vpn` instead if you want to use the CLI and the GUI.
 
   environment.systemPackages = with pkgs; [
     vulnix       #scan command: vulnix --system

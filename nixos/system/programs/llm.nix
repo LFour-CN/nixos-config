@@ -2,7 +2,7 @@
 
 {
   services.ollama.enable = false;
-  services.ollama.loadModels = [ ];
+  services.ollama.loadModels = [];
   services.ollama.acceleration = "cuda";
 
   environment.systemPackages = with pkgs; [
