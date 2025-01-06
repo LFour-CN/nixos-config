@@ -14,24 +14,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    flake-parts.url = "github:hercules-ci/flake-parts";
-
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-
-    treefmt-nix.url = "github:numtide/treefmt-nix";
-
-    rust-overlay.url = "github:oxalica/rust-overlay";
-
-    nnf.url = "github:thelegy/nixos-nftables-firewall";
-
  };
 
-  outputs = {  self, nixpkgs, home-manager, nixvim, flake-parts, nnf, ... }:
+  outputs = {  self, nixpkgs, home-manager, nixvim, ... }:
     {
      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
        system = "x86_64-linux";
           modules = [
+          
           nixvim.nixosModules.nixvim
+          
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -39,7 +31,6 @@
             home-manager.users.nixos = import ./home.nix;
           }
 
-          nnf.nixosModules.default
 
           ###### Hardware Configuration ###########
 
@@ -62,7 +53,6 @@
           ################################
           ###### System Programs ###############
 
-          ./system/programs/attack.nix
           ./system/programs/environment-variables.nix
           #./system/programs/flatpak.nix
           ./system/programs/llm.nix
@@ -71,11 +61,11 @@
           ./system/programs/openssh.nix
           ./system/programs/powermanager.nix
           ./system/programs/programs.nix
-          #./system/programs/rust.nix
           ./system/programs/secure.nix
           ./system/programs/services.nix
           ./system/programs/virtualisation.nix
           ./system/programs/nixvim/start.nix
+          ./system/programs/nix-security-box/nix-security-box.nix
 
           ################################
        ];

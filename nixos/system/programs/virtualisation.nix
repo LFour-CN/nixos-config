@@ -36,36 +36,38 @@
   # users.extraGroups.docker.members = [ "nixos" ];
 
   # Enable Podman
-  virtualisation = {
-    podman = {
-      enable = true;
+ # virtualisation = {
+   # podman = {
+   #   enable = true;
 
       # Create a `docker` alias for podman, to use it as a drop-in replacement
-      dockerCompat = true;
-      dockerSocket.enable = true;
+     # dockerCompat = true;
+    #  dockerSocket.enable = true;
 
       # Required for containers under podman-compose to be able to talk to each other.
-      defaultNetwork.settings.dns_enabled = true;
-    };
-  };
-  environment.variables.DBX_CONTAINER_MANAGER = "podman";
-  users.extraGroups.podman.members = [ "nixos" ];
+   #   defaultNetwork.settings.dns_enabled = true;
+   # };
+  #};
+ # environment.variables.DBX_CONTAINER_MANAGER = "podman";
+  #users.extraGroups.podman.members = [ "nixos" ];
 
-  environment.systemPackages = with pkgs; [
+  #environment.systemPackages = with pkgs; [
+    
     # nerdctl
 
     # firecracker
-     firectl
+    # firectl
     # flintlock
 
-    distrobox
-    qemu
+   # distrobox
+    #qemu
 
-    podman-compose
-    podman-tui
+    #podman-compose
+  #  podman-tui
 
-    docker-compose
+   # docker-compose
     # lazydocker
     # docker-credential-helpers
-  ];
+    
+  #];
 }

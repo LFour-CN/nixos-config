@@ -24,11 +24,14 @@
     pkgs.qq
     pkgs.wechat-uos
     pkgs.feishu
-    pkgs.bilibili
+    #pkgs.bilibili
     wiliwili
     libreoffice
     motrix
     netease-cloud-music-gtk
+    pkgs.ppsspp-sdl-wayland
+    pkgs.mgba
+    pkgs.melonDS
 
 ###### Study ##################################
 
@@ -40,7 +43,7 @@
     arduino
     freecad-wayland
     kicad
-    stm32cubemx
+    #stm32cubemx
 
 ###### Wine ##################
 

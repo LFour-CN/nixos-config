@@ -8,8 +8,6 @@
 
 ######default############
 
-    shadow
-    sudo
     vim
     wget
     git
@@ -30,7 +28,6 @@
     pamixer # Command-line mixer for PulseAudio
     bluez # Bluetooth support
     bluez-tools # Bluetooth tools
-    arsenal
 
 ###### Daily #############
 
@@ -98,12 +95,11 @@
     llvmPackages_19.clang-unwrapped
     llvmPackages_19.clang-tools
     direnv
-    stdenv
+    llvmPackages_18.stdenv
+    llvmPackages_18.libcxxStdenv
     gnumake
     glibc
     binutils
-    stdenv.cc.cc
-    gccStdenv
 
 ###### JAVA ##################
 
@@ -114,7 +110,6 @@
 ###### Embedded Development ######
     #
     gcc-arm-embedded
-    direnv
     platformio
     openocd
     uclibc-ng
@@ -126,8 +121,6 @@
     stm32loader
     stlink-tool
     stlink-gui
-    #dotnet-sdk
-    #dotnet-runtime
     #
     ### ESP32 ###
     #
@@ -145,11 +138,11 @@
 
 ###### Rust ###################
 
-     cargo
-     rustc
-     rustfmt
-     pkg-config
-     clippy
+    cargo
+    rustc
+    rustfmt
+    pkg-config
+    clippy
 
 ###### END ###################
   ];
