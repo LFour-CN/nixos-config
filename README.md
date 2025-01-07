@@ -14,8 +14,9 @@
 # Thank you list
 
   For those, I made some modifications to them to run successfully on my computer.
-  The nixvim configuration I borrowed: https://nix-community.github.io/nixvim/user-guide/config-examples.html
-  The nix-security-box: https://github.com/fabaff/nix-security-box
+  
+  1. The nixvim configuration I borrowed: https://nix-community.github.io/nixvim/user-guide/config-examples.html
+  2. The nix-security-box: https://github.com/fabaff/nix-security-box
 
 # Notice
 
