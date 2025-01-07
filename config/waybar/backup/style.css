@@ -60,7 +60,7 @@ button:hover {
 
 /* you can set a style on hover for any module like this */
 #pulseaudio:hover {
-    background-color: #2d3436;
+    background-color: #a37800;
 }
 
 /* -----------------------------------------------------
@@ -72,7 +72,7 @@ button:hover {
     padding:0px;
     font-size:10px;
     color: @iconcolor;*/
-   background-color: #2d3436;
+    background-color: #ff0000;
 }
 
 #workspaces {
@@ -110,7 +110,7 @@ button:hover {
 }
 
 #mode {
-   background-color: #2d3436;
+    background-color: #64727D;
     box-shadow: inset 0 -3px #ffffff;
 }
 
@@ -151,17 +151,17 @@ button:hover {
 }
 
 #clock {
-   background-color: #2d3436;
+    background-color: #64727D;
 }
 
 #battery {
-    background-color: #2d3436;
+    background-color: #ffffff;
     color: #000000;
 }
 
 #battery.charging, #battery.plugged {
     color: #ffffff;
-    background-color: #2d3436;
+    background-color: #26A65B;
 }
 
 @keyframes blink {
@@ -173,7 +173,7 @@ button:hover {
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-   background-color: #2d3436;
+    background-color: #f53c3c;
     color: #ffffff;
     animation-name: blink;
     animation-duration: 0.5s;
@@ -187,78 +187,84 @@ button:hover {
 }
 
 #power-profiles-daemon.performance {
-    background-color: #2d3436;
+    background-color: #f53c3c;
     color: #ffffff;
 }
 
 #power-profiles-daemon.balanced {
-   background-color: #2d3436;
+    background-color: #2980b9;
     color: #ffffff;
 }
 
 #power-profiles-daemon.power-saver {
-    background-color: #2d3436;
+    background-color: #2ecc71;
     color: #000000;
 }
 
 label:focus {
-    background-color: #2d3436;
+    background-color: #000000;
 }
 
 #cpu {
-    background-color: #2d3436;
+    background-color: #2ecc71;
+    color: #000000;
 }
 
 #memory {
-   background-color: #2d3436;
+    background-color: #9b59b6;
 }
 
 #disk {
-    background-color: #2d3436;
+    background-color: #964B00;
 }
 
 #backlight {
-   background-color: #2d3436;
+    background-color: #90b1b1;
 }
 
 #network {
-   background-color: #2d3436;
+    background-color: #2980b9;
 }
 
 #network.disconnected {
-    background-color: #2d3436;
+    background-color: #f53c3c;
 }
 
 #pulseaudio {
-    background-color: #2d3436;
+    background-color: #f1c40f;
+    color: #000000;
 }
 
 #pulseaudio.muted {
-   background-color: #2d3436;
+    background-color: #90b1b1;
+    color: #2a5c45;
 }
 
 #wireplumber {
-    background-color: #2d3436;
+    background-color: #fff0f5;
+    color: #000000;
 }
 
 #wireplumber.muted {
-    background-color: #2d3436;
+    background-color: #f53c3c;
 }
 
 #custom-media {
-    background-color: #2d3436;
+    background-color: #66cc99;
+    color: #2a5c45;
+    min-width: 100px;
 }
 
 #custom-media.custom-spotify {
-    background-color: #2d3436;
+    background-color: #66cc99;
 }
 
 #custom-media.custom-vlc {
-    background-color: #2d3436;
+    background-color: #ffa000;
 }
 
 #temperature {
-    background-color: #2d3436;
+    background-color: #f0932b;
 }
 
 #temperature.critical {
@@ -266,7 +272,7 @@ label:focus {
 }
 
 #tray {
-    background-color: #2d3436;
+    background-color: #8fbc8f;
 }
 
 #tray > .passive {
@@ -275,7 +281,7 @@ label:focus {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #2d3436;
+    background-color: #eb4d4b;
 }
 
 #idle_inhibitor {
@@ -283,29 +289,29 @@ label:focus {
 }
 
 #idle_inhibitor.activated {
-    background-color: #2d3436;
+    background-color: #ecf0f1;
     color: #2d3436;
 }
 
 #mpd {
-    background-color: #2d3436;
+    background-color: #66cc99;
     color: #2a5c45;
 }
 
 #mpd.disconnected {
-   background-color: #2d3436;
+    background-color: #f53c3c;
 }
 
 #mpd.stopped {
-    background-color: #2d3436;
+    background-color: #90b1b1;
 }
 
 #bluetooth {
-   background-color: #2d3436;
+   background-color: #00ced2;
 }
 
 #mpd.paused {
-   background-color: #2d3436;
+    background-color: #51a37a;
 }
 
 #language {
@@ -350,13 +356,13 @@ label:focus {
 }
 
 #privacy-item.screenshare {
-    background-color: #2d3436;
+    background-color: #cf5700;
 }
 
 #privacy-item.audio-in {
-    background-color: #2d3436;
+    background-color: #1ca000;
 }
 
 #privacy-item.audio-out {
-   background-color: #2d3436;
+    background-color: #0069d4;
 }
