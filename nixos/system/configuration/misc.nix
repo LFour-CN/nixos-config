@@ -5,6 +5,11 @@
   #enable flake
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
+    # Linux Kernel for Zen (A Kernel for high performance,but at the cost of sacrificing memory and power supply)
+  #boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+  #boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_13; # Lastest kernel
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_12; # Stable Kernel
+
   #nix-collect-garbage
   nix.settings.auto-optimise-store = true;
   nix.optimise.automatic = true;

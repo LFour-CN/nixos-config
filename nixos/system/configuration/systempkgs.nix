@@ -20,6 +20,7 @@
     dhcpcd
     dhcping
     sl
+    electron
     asciiquarium
     cowsay
     brightnessctl
@@ -47,8 +48,6 @@
 
 ###### Hyprland ###########
 
-    libsForQt5.qt5.qtwayland
-    libsForQt5.qtutilities
     hyprland
     hyprutils
     pyprland
@@ -67,12 +66,6 @@
     dunst
     hyprshade
     hyprlang
-    cairo
-    libzip
-    librsvg
-    xcur2png
-    tomlplusplus
-
 
 ###### Remote Desktop #########
 
@@ -84,35 +77,23 @@
 ###### C & C++ ################
 
     gcc
-    gcc_multi
     gdb
     lldb
-    pkgs.cmake
+    cmake
     clang
-    ccls
-    pkgs.gtest
-    pkgs.clang-tools
-    llvmPackages_19.clang-unwrapped
-    llvmPackages_19.clang-tools
     direnv
-    llvmPackages_18.stdenv
-    llvmPackages_18.libcxxStdenv
+    stdenv
     gnumake
-    glibc
-    binutils
 
 ###### JAVA ##################
 
     zulu23
-    javaPackages.openjfx23
-    electron
 
 ###### Embedded Development ######
     #
     gcc-arm-embedded
     platformio
     openocd
-    uclibc-ng
    #
    ### STM32 ###
    #
@@ -126,7 +107,6 @@
     #
     esptool
     espflash
-    esptool-ck
     #
 ###### Python #################
 
@@ -140,11 +120,7 @@
 
     cargo
     rustc
-    rustfmt
-    pkg-config
-    clippy
 
 ###### END ###################
-  ];
-
+   ];
 }
