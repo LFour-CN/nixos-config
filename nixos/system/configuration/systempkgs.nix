@@ -112,6 +112,12 @@
 
     python3Full
 
+
+###### MySQL ##################
+
+    mariadb
+    mysql-shell
+
 ###### NodeJS #################
 
     nodejs
