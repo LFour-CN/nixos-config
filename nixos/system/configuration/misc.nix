@@ -10,6 +10,9 @@
   boot.kernelPackages = pkgs.linuxPackages_latest; # Latest kernel
   #boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_12; # Stable Kernel
 
+  # NixOS Swap
+  # zramSwap.enable = true;
+
   #nix-collect-garbage
   nix.settings.auto-optimise-store = true;
   nix.optimise.automatic = true;
