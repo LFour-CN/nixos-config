@@ -15,7 +15,7 @@
   systemd.services.wpa_supplicant.serviceConfig.TimeoutSec = "2";
   systemd.services.NetworkManager.serviceConfig.TimeoutSec = "2";
   systemd.services.journald.serviceConfig.TimeoutSec = "2";
-  systemd.services."udev-settle".serviceConfig.TimeoutSec = "2";
+  #systemd.services."udev-settle".serviceConfig.TimeoutSec = "2";
   services.journald = {
     storage = "persistent";
     rateLimitBurst = 10000;

@@ -48,7 +48,7 @@
   # };
 
   # USB Automounting
-  services.gvfs.enable = true;
+  #services.gvfs.enable = true;
   services.udisks2.enable = true;
   # services.devmon.enable = true;
 
@@ -77,23 +77,23 @@
     #updater.frequency = 12;
   #};
 
-  programs.firejail = {
-    enable = true;
-    wrappedBinaries = {
-      mpv = {
-        executable = "${lib.getBin pkgs.mpv}/bin/mpv";
-        profile = "${pkgs.firejail}/etc/firejail/mpv.profile";
-      };
-      imv = {
-        executable = "${lib.getBin pkgs.imv}/bin/imv";
-        profile = "${pkgs.firejail}/etc/firejail/imv.profile";
-      };
-      brave = {
-        executable = "${lib.getBin pkgs.brave}/bin/brave";
-        profile = "${pkgs.firejail}/etc/firejail/brave.profile";
-      };
-    };
-  };
+  #programs.firejail = {
+    #enable = true;
+    #wrappedBinaries = {
+    # mpv = {
+    #   executable = "${lib.getBin pkgs.mpv}/bin/mpv";
+    #   profile = "${pkgs.firejail}/etc/firejail/mpv.profile";
+    # };
+    # imv = {
+    #   executable = "${lib.getBin pkgs.imv}/bin/imv";
+    #   profile = "${pkgs.firejail}/etc/firejail/imv.profile";
+    # };
+    # brave = {
+    #   executable = "${lib.getBin pkgs.brave}/bin/brave";
+    #   profile = "${pkgs.firejail}/etc/firejail/brave.profile";
+    # };
+    #};
+ #};
 
   environment.systemPackages = with pkgs; [
     #clamav       #scan command: sudo freshclam; clamscan [options] [file/directory/-]
