@@ -45,6 +45,7 @@
     tlp
     lshw
     p7zip
+    chromium
 
 ###### Hyprland ###########
 
