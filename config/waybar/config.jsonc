@@ -28,8 +28,7 @@
         "temperature",
         "battery",
         "battery#bat2",
-        "clock",
-        "custom/exit"
+        "clock"
     ],
     // Modules configuration
     // "sway/workspaces": {
