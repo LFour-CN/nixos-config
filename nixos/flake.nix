@@ -18,31 +18,49 @@
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
-    #treefmt-nix.url = "github:numtide/treefmt-nix";
+    auto-cpufreq = {
+      url = "github:AdnanHodzic/auto-cpufreq";
+      inputs.nixpkgs.follows = "nixpkgs";
+      };
+
+    #vscodium-server.url = "github:unicap/nixos-vscodium-server";
 
  };
 
-  outputs = {  self, nixpkgs, home-manager, nixvim, flake-parts, neovim-nightly-overlay, ... }:
+  outputs =
+  {  self, nixpkgs, home-manager, nixvim, flake-parts, neovim-nightly-overlay, auto-cpufreq, ... }@inputs:
     {
      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-       system = "x86_64-linux";
-          modules = [
+        system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs;
+        };
+        modules = [
 
-          nixvim.nixosModules.nixvim
+          #nixvim.nixosModules.nixvim
+
+          #nixvim.homeManagerModules.nixvim
+
+          auto-cpufreq.nixosModules.default
+
+          #vscodium-server.nixosModules.default
 
           home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.nixos = import ./home.nix;
-          }
-
+              home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+                sharedModules = [ nixvim.homeManagerModules.nixvim ];
+                users.nixos = import ./home.nix;
+          };
+     }
 
           ###### Hardware Configuration ###########
 
           ./system/hardware/amdgpu.nix
           ./system/hardware/audio.nix
           ./system/hardware/bluetooth.nix
+          ./system/hardware/camera.nix
           ./system/hardware/hardware-configuration.nix
           ./system/hardware/nvidia.nix
 
@@ -70,7 +88,6 @@
           ./system/programs/secure.nix
           ./system/programs/services.nix
           ./system/programs/virtualisation.nix
-          ./system/programs/nixvim/nixvim.nix
           ./system/programs/nix-security-box/nix-security-box.nix
 
           ################################

@@ -23,28 +23,32 @@
 
     pkgs.qq
     pkgs.wechat-uos
-    pkgs.feishu
+    #pkgs.feishu
     pkgs.bilibili
     wiliwili
     libreoffice
     motrix
+    bitcomet
+    qbittorrent
     netease-cloud-music-gtk
-    pkgs.ppsspp-sdl-wayland
-    pkgs.mgba
-    pkgs.melonDS
+    #pkgs.ppsspp-sdl-wayland
+    #pkgs.mgba
+    #pkgs.melonDS
 
 ###### Study ##################################
 
     #pkgs.geogebra
     ventoy-full
-    lmstudio
+    #lmstudio
+    pkgs.jetbrains.clion
+    pkgs.jetbrains.pycharm-professional
 
 ###### Embedded development ###################
 
     arduino
     freecad-wayland
-    kicad
-    #stm32cubemx
+    pkgs.kicad
+    stm32cubemx
 
 ###### Wine ##################
 

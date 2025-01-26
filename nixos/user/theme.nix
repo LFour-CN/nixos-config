@@ -7,7 +7,7 @@
       name = "Breeze-Dark";
       package = pkgs.libsForQt5.breeze-gtk;
     };
-    
+
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.catppuccin-papirus-folders.override {
@@ -15,13 +15,13 @@
         accent = "lavender";
       };
     };
-    
+
     cursorTheme = {
       name = "Catppuccin-Mocha-Dark-Cursors";
       package = pkgs.catppuccin-cursors.mochaDark;
     };
     gtk3 = {
-      extraConfig.gtk-application-prefer-dark-theme = true;
+      #extraConfig.gtk-application-prefer-dark-theme = true;
     };
   };
 
@@ -51,5 +51,5 @@
   #xdg.configFile."Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini { }).generate "kvantum.kvconfig" {
     #General.theme = "Catppuccin-Macchiato-Blue";
   #};
-  
+
 }

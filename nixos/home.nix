@@ -1,4 +1,4 @@
-{ config, pkgs, nixvim, ... }:
+{ config, pkgs, nixvim,  ... }:
 {
 
   #Let Home Manager install and manage itself.
@@ -11,6 +11,7 @@
     ./user/programs.nix
     ./user/theme.nix
     ./user/userpkgs.nix
+    ./user/nixvim/nixvim.nix
   ];
 
   #Home-manager version
