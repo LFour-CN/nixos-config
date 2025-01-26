@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ config, pkgs, ...}:
 {
   # Enable Hotspot
   #services.create_ap = {
@@ -33,5 +33,8 @@
       MaxFileSec=1week
     '';
   };
+
+  #services.vscodium-server.enable = true;
+
 
 }

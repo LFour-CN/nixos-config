@@ -23,7 +23,31 @@
     viAlias = true;
     vimAlias = true;
   };
- 
+
  #Fwupd
-  services.fwupd.enable = true;
+ # services.fwupd.enable = true;
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    # Add any missing dynamic libraries for unpackaged programs here, NOT in environment.systemPackages
+    gcc-arm-embedded
+    gcc
+    gdb
+    lldb
+    cmake
+    clang
+    direnv
+    stdenv
+    gnumake
+    zulu23
+    zulu23
+    mariadb
+    nodejs
+    cargo
+    rustc
+    hyprutils
+    libcamera
+    libclang
+  ];
+
 }

@@ -8,5 +8,6 @@
         #QT_IM_MODULE = "fcitx";
         XMODIFIERS = "@im=fcitx";
         NODEJS_PATH = "${pkgs.nodePackages_latest.nodejs}/";
+        HYPRSHOT_DIR="$HOME/Pictures/Screenshots";
   };
 }

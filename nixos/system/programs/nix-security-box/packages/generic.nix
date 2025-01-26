@@ -17,7 +17,7 @@
     hurl
     inetutils
     inxi
-    ioccheck
+    #ioccheck
     iproute2
     iw
     lynx

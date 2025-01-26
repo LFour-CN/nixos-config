@@ -52,22 +52,19 @@
   #users.extraGroups.podman.members = [ "nixos" ];
 
   #environment.systemPackages = with pkgs; [
-    
-    # nerdctl
 
-    # firecracker
-    # firectl
-    # flintlock
-
-   # distrobox
+    #nerdctl
+    #firecracker
+    #firectl
+    #flintlock
+    #distrobox
     #qemu
-
+    #docui
     #podman-compose
-  #  podman-tui
+    #podman-tui
+    #docker-compose
+    #lazydocker
+    #docker-credential-helpers
 
-   # docker-compose
-    # lazydocker
-    # docker-credential-helpers
-    
   #];
 }

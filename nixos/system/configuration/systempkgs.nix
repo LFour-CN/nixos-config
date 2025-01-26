@@ -24,11 +24,19 @@
     asciiquarium
     cowsay
     brightnessctl
-    busybox #Tiny versions of common UNIX utilities in a single small executable
+    #busybox #Tiny versions of common UNIX utilities in a single small executable
     pavucontrol # PulseAudio Volume Control
     pamixer # Command-line mixer for PulseAudio
     bluez # Bluetooth support
     bluez-tools # Bluetooth tools
+    klibcShrunk
+    glib-networking
+    ranger
+    lsd
+    tree
+    lynx
+    w3m
+    elinks
 
 ###### Daily #############
 
@@ -46,6 +54,8 @@
     lshw
     p7zip
     chromium
+    #lenovo-legion
+    #ghostty
 
 ###### Hyprland ###########
 
@@ -82,6 +92,8 @@
     lldb
     cmake
     clang
+    libclang
+    clang-tools
     direnv
     stdenv
     gnumake
@@ -108,6 +120,7 @@
     #
     esptool
     espflash
+    arduino-language-server
     #
 ###### Python #################
 
