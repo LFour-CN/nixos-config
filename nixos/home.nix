@@ -9,9 +9,9 @@
 
   imports = [
     ./user/programs.nix
+    ./user/llm.nix
     ./user/theme.nix
     ./user/userpkgs.nix
-    ./user/nixvim/nixvim.nix
   ];
 
   #Home-manager version

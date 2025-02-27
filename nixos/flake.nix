@@ -1,5 +1,5 @@
 {
-  description = "Configurations";
+  description = "NixOS System Configuration";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -37,7 +37,7 @@
         };
         modules = [
 
-          #nixvim.nixosModules.nixvim
+          nixvim.nixosModules.nixvim
 
           #nixvim.homeManagerModules.nixvim
 
@@ -50,7 +50,7 @@
               home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-                sharedModules = [ nixvim.homeManagerModules.nixvim ];
+                #sharedModules = [ nixvim.homeManagerModules.nixvim ];
                 users.nixos = import ./home.nix;
           };
      }
@@ -78,10 +78,9 @@
           ###### System Programs ###############
 
           ./system/programs/environment-variables.nix
-          #./system/programs/flatpak.nix
-          ./system/programs/llm.nix
           ./system/programs/lsp.nix
           ./system/programs/networks.nix
+          ./system/programs/nixvim/nixvim.nix
           ./system/programs/openssh.nix
           ./system/programs/powermanager.nix
           ./system/programs/programs.nix
