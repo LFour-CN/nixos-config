@@ -1,22 +1,46 @@
 { lib, pkgs, config, ...}:
 {
-  #Enable Java
+  # Enable Java
   programs.java.enable = true;
 
-  #Enable Direnv
+  # Enable Direnv
   programs.direnv.enable = true;
 
-  #Enable Steam
+  # Enable Steam
   programs.steam = {
   enable = true;
   };
 
-  #Enable Zsh
-  programs.zsh = {
+  # Enable Zsh
+  #programs.zsh = {
+  #  enable = true;
+  #};
+
+  # Enable fish
+  programs.fish = {
+    enable = true;
+    shellAliases = {
+      li = "lsd --human-readable";
+      tt = "tree";
+      ls = "ls";
+      F = "ranger";
+      update = "cd /etc/nixos && sudo nixos-rebuild switch --flake .#";
+      garbage = "sudo nix-collect-garbage -d && nix-collect-garbage -d";
+      flake = "cd /etc/nixos && sudo nix flake update";
+      rfbb = "rfkill block 2";
+      rfub = "rfkill unblock 2";
+      blon = "bluetooth on";
+      blof = "bluetooth off";
+      blctl = "bluetoothctl";
+    };
+  };
+
+  # Enable tmux
+  programs.tmux = {
     enable = true;
   };
 
-  #Neovim
+  # Neovim
   environment.variables.EDITOR = "nvim";
   programs.neovim = {
     enable = true;
@@ -24,7 +48,7 @@
     vimAlias = true;
   };
 
- #Fwupd
+ # Fwupd
  # services.fwupd.enable = true;
 
   programs.nix-ld.enable = true;
@@ -33,13 +57,12 @@
     gcc-arm-embedded
     gcc
     gdb
-    lldb
+    #lldb
     cmake
     clang
     direnv
     stdenv
     gnumake
-    zulu23
     zulu23
     mariadb
     nodejs
@@ -48,6 +71,11 @@
     hyprutils
     libcamera
     libclang
+    openocd
+    stlink
+    #riscv-pk
+    uclibc-ng
+    sail-riscv-rv64
   ];
 
 }

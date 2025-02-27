@@ -103,43 +103,44 @@
   services.devmon.enable = true;
 
   # Enable USB Guard
-  services.usbguard = {
-    enable = true;
-    dbus.enable = true;
-    implicitPolicyTarget = "block";
+  #services.usbguard = {
+  #  enable = true;
+  #  dbus.enable = true;
+  #  implicitPolicyTarget = "block";
     # TODO set yours pref USB devices (change {id} to your trusted USB device),
     #use "lsusb" command (from usbutils package) to get list of all connected USB devices
     #including integrated devices like camera, bluetooth, wifi, etc.
     #with their IDs or just disable `usbguard`
-    rules = ''
-      allow id {"1d6b:0002"} # Linux Foundation 2.0 root hub
-      allow id {"1d6b:0003"} # Linux Foundation 3.0 root hub
-      allow id {"0bda:5411"} # Realtek Semiconductor Corp. RTS5411 hub
-      allow id {"5986:118a"} # Bison Electronics Inc. Integrated Camera
-      allow id {"30fa:1701"} # INSTANT USB GAMING MOUSE
-      allow id {"048d:c102"} # Integrated Technology Express, Inc. ITE Device(8910)
-      allow id {"0489:e0cd"} # Foxconn / Hon Hai MediaTek Bluetooth Adapter
-      allow id {"1d6b:0003"} # Linux Foundation 3.0 root hub
-      allow id {"0bda:0411"} # Realtek Semiconductor Corp. Hub
-      allow id {"258a:013b"} # Sino Wealth USB Keyboard
-      allow id {"24a9:205a"} # ASolid USB
-      allow id {"1908:0226"} # GEMBIRD MicroSD Card Reader/Writer
-    '';
-  };
+  #  rules = ''
+  #        allow id 1d6b:0002 # Linux Foundation 2.0 root hub
+  #        allow id 1d6b:0003 # Linux Foundation 3.0 root hub
+  #        allow id 0bda:5411 # Realtek Semiconductor Corp. RTS5411 hub
+  #        allow id 5986:118a # Bison Electronics Inc. Integrated Camera
+  #        allow id 30fa:1701 # INSTANT USB GAMING MOUSE
+  #        allow id 048d:c102 # Integrated Technology Express, Inc. ITE Device(8910)
+        #  allow id 0489:e0cd # Foxconn / Hon Hai MediaTek Bluetooth Adapter
+        #  allow id 1d6b:0003 # Linux Foundation 3.0 root hub
+        #  allow id 0bda:0411 # Realtek Semiconductor Corp. Hub
+        #  allow id 258a:013b # Sino Wealth USB Keyboard
+        #  allow id 24a9:205a # ASolid USB
+        #  allow id 1908:0226 # GEMBIRD MicroSD Card Reader/Writer
+	#  allow id 1ea7:0064 # SHARKOON Technologies GmbH 2.4GHz Wireless rechargeable vertical mouse [More&Better]
+   # '';
+  #};
 
   # Enable clamav scanner
-  services.clamav = {
-    scanner = {
-      enable = true;
-      interval = "Sat *-*-* 04:00:00";
-     };
-    daemon.enable = true;
-    fangfrisch.enable = true;
-    fangfrisch.interval = "daily";
-    updater.enable = true;
-    updater.interval = "daily"; #man systemd.time
-    updater.frequency = 12;
-  };
+  #services.clamav = {
+   # scanner = {
+   #   enable = true;
+   #   interval = "Sat *-*-* 04:00:00";
+   #  };
+   # daemon.enable = true;
+   # fangfrisch.enable = true;
+   # fangfrisch.interval = "daily";
+   # updater.enable = true;
+   # updater.interval = "daily"; #man systemd.time
+   # updater.frequency = 12;
+  #};
 
   programs.firejail = {
     enable = true;
@@ -156,7 +157,7 @@
  };
 
   environment.systemPackages = with pkgs; [
-    vulnix       #scan command: vulnix --system
+    #vulnix       #scan command: vulnix --system
     clamav       #scan command: sudo freshclam; clamscan [options] [file/directory/-]
     chkrootkit   #scan command: sudo chkrootkit
     pass-wayland

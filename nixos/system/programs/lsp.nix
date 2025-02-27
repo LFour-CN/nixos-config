@@ -3,7 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
   
-    python311Packages.python-lsp-server
+    #python311Packages.python-lsp-server
     nodePackages_latest.nodemon
     nodePackages_latest.typescript
     nodePackages_latest.typescript-language-server

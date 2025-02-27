@@ -20,10 +20,12 @@
      };
     };
    };
+   
   #networking.interfaces.enp4s0.ipv4.addresses = [{
   #address = "10.25.0.2";
   #prefixLength = 24;
   #}];
+  
     # Enable Containerd
   # virtualisation.containerd.enable = true;
 
