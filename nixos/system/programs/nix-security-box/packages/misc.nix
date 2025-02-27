@@ -21,7 +21,7 @@
     snscrape
     sr2t
     sttr
-    troubadix
+    #troubadix
     
   ];
 }

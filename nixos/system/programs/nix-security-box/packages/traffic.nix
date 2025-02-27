@@ -6,7 +6,6 @@
   environment.systemPackages = with pkgs; [
    
     above
-    anevicon
     dhcpdump
     dnstop
     driftnet

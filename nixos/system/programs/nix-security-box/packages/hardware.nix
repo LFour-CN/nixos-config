@@ -9,7 +9,7 @@
     chipsec
     cmospwd
     extrude
-    gallia
+    #gallia
     hachoir
     packetry
     teensy-loader-cli

@@ -5,7 +5,7 @@
 {
   environment.systemPackages = with pkgs; [
    
-    cero
+    #cero
     gsan
     sslscan
     ssldump
