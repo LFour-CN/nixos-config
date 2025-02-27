@@ -5,7 +5,6 @@
     isNormalUser = true;
     description = "nixos";
     extraGroups = [ "networkmanager" "wheel" "dialout"  "libvirtd" ];
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
   };
-  environment.systemPackages = with pkgs; [];
-  }
+}

@@ -20,6 +20,7 @@
     dhcpcd
     dhcping
     sl
+    btop
     electron
     asciiquarium
     cowsay
@@ -32,17 +33,21 @@
     klibcShrunk
     glib-networking
     ranger
+    ghostty
+    bear
     lsd
     tree
     lynx
     w3m
-    elinks
 
 ###### Daily #############
 
     nemo
     peazip
     pkgs.zsh
+    pkgs.fish
+    tmux
+    polybar
     htop
     starship
     gedit
@@ -54,8 +59,6 @@
     lshw
     p7zip
     chromium
-    #lenovo-legion
-    #ghostty
 
 ###### Hyprland ###########
 
@@ -78,18 +81,13 @@
     hyprshade
     hyprlang
 
-###### Remote Desktop #########
-
-    wayvnc
-    wprs
-
 ###### Nix ####################
 
 ###### C & C++ ################
 
     gcc
     gdb
-    lldb
+    #lldb
     cmake
     clang
     libclang
@@ -107,6 +105,10 @@
     gcc-arm-embedded
     platformio
     openocd
+    pkgs.dotnet-sdk
+    pkgs.dotnet-runtime
+    uclibc-ng
+    sail-riscv-rv64
    #
    ### STM32 ###
    #
