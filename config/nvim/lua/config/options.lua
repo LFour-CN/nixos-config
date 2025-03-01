@@ -1,138 +1,125 @@
--- Options are automatically loaded before lazy.nvim startup
--- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
--- Add any additional options here
-vim.g.lazyvim_picker = "fzf"
-opts = function(_, opts)
-  local fzf = require("fzf-lua")
-  local config = fzf.config
-  local actions = fzf.actions
+-- This file is automatically loaded by plugins.core
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
-  -- Quickfix
-  config.defaults.keymap.fzf["ctrl-q"] = "select-all+accept"
-  config.defaults.keymap.fzf["ctrl-u"] = "half-page-up"
-  config.defaults.keymap.fzf["ctrl-d"] = "half-page-down"
-  config.defaults.keymap.fzf["ctrl-x"] = "jump"
-  config.defaults.keymap.fzf["ctrl-f"] = "preview-page-down"
-  config.defaults.keymap.fzf["ctrl-b"] = "preview-page-up"
-  config.defaults.keymap.builtin["<c-f>"] = "preview-page-down"
-  config.defaults.keymap.builtin["<c-b>"] = "preview-page-up"
+-- LazyVim auto format
+vim.g.autoformat = true
 
-  -- Trouble
-  if LazyVim.has("trouble.nvim") then
-    config.defaults.actions.files["ctrl-t"] = require("trouble.sources.fzf").actions.open
-  end
+-- Snacks animations
+-- Set to `false` to globally disable all snacks animations
+vim.g.snacks_animate = true
 
-  -- Toggle root dir / cwd
-  config.defaults.actions.files["ctrl-r"] = function(_, ctx)
-    local o = vim.deepcopy(ctx.__call_opts)
-    o.root = o.root == false
-    o.cwd = nil
-    o.buf = ctx.__CTX.bufnr
-    LazyVim.pick.open(ctx.__INFO.cmd, o)
-  end
-  config.defaults.actions.files["alt-c"] = config.defaults.actions.files["ctrl-r"]
-  config.set_action_helpstr(config.defaults.actions.files["ctrl-r"], "toggle-root-dir")
+-- LazyVim picker to use.
+-- Can be one of: telescope, fzf
+-- Leave it to "auto" to automatically use the picker
+-- enabled with `:LazyExtras`
+vim.g.lazyvim_picker = "auto"
 
-  local img_previewer ---@type string[]?
-  for _, v in ipairs({
-    { cmd = "ueberzug", args = {} },
-    { cmd = "chafa", args = { "{file}", "--format=symbols" } },
-    { cmd = "viu", args = { "-b" } },
-  }) do
-    if vim.fn.executable(v.cmd) == 1 then
-      img_previewer = vim.list_extend({ v.cmd }, v.args)
-      break
-    end
-  end
+-- LazyVim completion engine to use.
+-- Can be one of: nvim-cmp, blink.cmp
+-- Leave it to "auto" to automatically use the completion engine
+-- enabled with `:LazyExtras`
+vim.g.lazyvim_cmp = "auto"
 
-  return {
-    "default-title",
-    fzf_colors = true,
-    fzf_opts = {
-      ["--no-scrollbar"] = true,
-    },
-    defaults = {
-      -- formatter = "path.filename_first",
-      formatter = "path.dirname_first",
-    },
-    previewers = {
-      builtin = {
-        extensions = {
-          ["png"] = img_previewer,
-          ["jpg"] = img_previewer,
-          ["jpeg"] = img_previewer,
-          ["gif"] = img_previewer,
-          ["webp"] = img_previewer,
-        },
-        ueberzug_scaler = "fit_contain",
-      },
-    },
-    -- Custom LazyVim option to configure vim.ui.select
-    ui_select = function(fzf_opts, items)
-      return vim.tbl_deep_extend("force", fzf_opts, {
-        prompt = " ",
-        winopts = {
-          title = " " .. vim.trim((fzf_opts.prompt or "Select"):gsub("%s*:%s*$", "")) .. " ",
-          title_pos = "center",
-        },
-      }, fzf_opts.kind == "codeaction" and {
-        winopts = {
-          layout = "vertical",
-          -- height is number of items minus 15 lines for the preview, with a max of 80% screen height
-          height = math.floor(math.min(vim.o.lines * 0.8 - 16, #items + 2) + 0.5) + 16,
-          width = 0.5,
-          preview = not vim.tbl_isempty(LazyVim.lsp.get_clients({ bufnr = 0, name = "vtsls" })) and {
-            layout = "vertical",
-            vertical = "down:15,border-top",
-            hidden = "hidden",
-          } or {
-            layout = "vertical",
-            vertical = "down:15,border-top",
-          },
-        },
-      } or {
-        winopts = {
-          width = 0.5,
-          -- height is number of items, with a max of 80% screen height
-          height = math.floor(math.min(vim.o.lines * 0.8, #items + 2) + 0.5),
-        },
-      })
-    end,
-    winopts = {
-      width = 0.8,
-      height = 0.8,
-      row = 0.5,
-      col = 0.5,
-      preview = {
-        scrollchars = { "┃", "" },
-      },
-    },
-    files = {
-      cwd_prompt = false,
-      actions = {
-        ["alt-i"] = { actions.toggle_ignore },
-        ["alt-h"] = { actions.toggle_hidden },
-      },
-    },
-    grep = {
-      actions = {
-        ["alt-i"] = { actions.toggle_ignore },
-        ["alt-h"] = { actions.toggle_hidden },
-      },
-    },
-    lsp = {
-      symbols = {
-        symbol_hl = function(s)
-          return "TroubleIcon" .. s
-        end,
-        symbol_fmt = function(s)
-          return s:lower() .. "\t"
-        end,
-        child_prefix = false,
-      },
-      code_actions = {
-        previewer = vim.fn.executable("delta") == 1 and "codeaction_native" or nil,
-      },
-    },
-  }
+-- if the completion engine supports the AI source,
+-- use that instead of inline suggestions
+vim.g.ai_cmp = true
+
+-- LazyVim root dir detection
+-- Each entry can be:
+-- * the name of a detector function like `lsp` or `cwd`
+-- * a pattern or array of patterns like `.git` or `lua`.
+-- * a function with signature `function(buf) -> string|string[]`
+vim.g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
+
+-- Optionally setup the terminal to use
+-- This sets `vim.o.shell` and does some additional configuration for:
+-- * pwsh
+-- * powershell
+-- LazyVim.terminal.setup("pwsh")
+
+-- Set LSP servers to be ignored when used with `util.root.detectors.lsp`
+-- for detecting the LSP root
+vim.g.root_lsp_ignore = { "copilot" }
+
+-- Hide deprecation warnings
+vim.g.deprecation_warnings = false
+
+-- Show the current document symbols location from Trouble in lualine
+-- You can disable this for a buffer by setting `vim.b.trouble_lualine = false`
+vim.g.trouble_lualine = true
+
+local opt = vim.opt
+
+opt.autowrite = true -- Enable auto write
+-- only set clipboard if not in ssh, to make sure the OSC 52
+-- integration works automatically. Requires Neovim >= 0.10.0
+opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
+opt.completeopt = "menu,menuone,noselect"
+opt.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with substitutions
+opt.confirm = true -- Confirm to save changes before exiting modified buffer
+opt.cursorline = true -- Enable highlighting of the current line
+opt.expandtab = true -- Use spaces instead of tabs
+opt.fillchars = {
+  foldopen = "",
+  foldclose = "",
+  fold = " ",
+  foldsep = " ",
+  diff = "╱",
+  eob = " ",
+}
+opt.foldlevel = 99
+opt.formatexpr = "v:lua.require'lazyvim.util'.format.formatexpr()"
+opt.formatoptions = "jcroqlnt" -- tcqj
+opt.grepformat = "%f:%l:%c:%m"
+opt.grepprg = "rg --vimgrep"
+opt.ignorecase = true -- Ignore case
+opt.inccommand = "nosplit" -- preview incremental substitute
+opt.jumpoptions = "view"
+opt.laststatus = 3 -- global statusline
+opt.linebreak = true -- Wrap lines at convenient points
+opt.list = true -- Show some invisible characters (tabs...
+opt.mouse = "a" -- Enable mouse mode
+opt.number = true -- Print line number
+opt.pumblend = 10 -- Popup blend
+opt.pumheight = 10 -- Maximum number of entries in a popup
+opt.relativenumber = true -- Relative line numbers
+opt.ruler = false -- Disable the default ruler
+opt.scrolloff = 4 -- Lines of context
+opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
+opt.shiftround = true -- Round indent
+opt.shiftwidth = 2 -- Size of an indent
+opt.shortmess:append({ W = true, I = true, c = true, C = true })
+opt.showmode = false -- Dont show mode since we have a statusline
+opt.sidescrolloff = 8 -- Columns of context
+opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
+opt.smartcase = true -- Don't ignore case with capitals
+opt.smartindent = true -- Insert indents automatically
+opt.spelllang = { "en" }
+opt.splitbelow = true -- Put new windows below current
+opt.splitkeep = "screen"
+opt.splitright = true -- Put new windows right of current
+opt.statuscolumn = [[%!v:lua.require'snacks.statuscolumn'.get()]]
+opt.tabstop = 2 -- Number of spaces tabs count for
+opt.termguicolors = true -- True color support
+opt.timeoutlen = vim.g.vscode and 1000 or 300 -- Lower than default (1000) to quickly trigger which-key
+opt.undofile = true
+opt.undolevels = 10000
+opt.updatetime = 200 -- Save swap file and trigger CursorHold
+opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
+opt.wildmode = "longest:full,full" -- Command-line completion mode
+opt.winminwidth = 5 -- Minimum window width
+opt.wrap = false -- Disable line wrap
+
+if vim.fn.has("nvim-0.10") == 1 then
+  opt.smoothscroll = true
+  opt.foldexpr = "v:lua.require'lazyvim.util'.ui.foldexpr()"
+  opt.foldmethod = "expr"
+  opt.foldtext = ""
+else
+  opt.foldmethod = "indent"
+  opt.foldtext = "v:lua.require'lazyvim.util'.ui.foldtext()"
 end
+
+-- Fix markdown indentation settings
+vim.g.markdown_recommended_style = 0
