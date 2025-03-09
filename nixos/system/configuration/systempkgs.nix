@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -25,12 +25,19 @@
     asciiquarium
     cowsay
     brightnessctl
+    alsa-utils
+    ncmpcpp 
+    cmus 
+    musikcube
+    coreutils-full
     #busybox #Tiny versions of common UNIX utilities in a single small executable
     pavucontrol # PulseAudio Volume Control
     pamixer # Command-line mixer for PulseAudio
     bluez # Bluetooth support
     bluez-tools # Bluetooth tools
     klibcShrunk
+    ffmpeg-full
+    mplayer
     glib-networking
     ranger
     ghostty
@@ -79,7 +86,8 @@
     wlogout
     dunst
     hyprshade
-    hyprlang
+    hyprlang 
+    inputs.swww.packages.${pkgs.system}.swww
 
 ###### Nix ####################
 
@@ -87,7 +95,7 @@
 
     gcc
     gdb
-    #lldb
+    lldb
     cmake
     clang
     libclang
