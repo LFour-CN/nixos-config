@@ -1,0 +1,192 @@
+22:22:49 [info] [LOG SESSION] ---------- START ----------
+22:22:49 [info] [PluginFactory] loading plugins
+22:22:49 [info] [PluginFactory] loaded: /nix/store/nvkn7qf1icnr6nkmr2447vfl1h3pvhmz-musikcube-3.0.4/share/musikcube/plugins/libtaglibreader.so
+22:22:49 [info] [PluginFactory] loaded: /nix/store/nvkn7qf1icnr6nkmr2447vfl1h3pvhmz-musikcube-3.0.4/share/musikcube/plugins/libhttpdatastream.so
+22:22:49 [info] [PluginFactory] loaded: /nix/store/nvkn7qf1icnr6nkmr2447vfl1h3pvhmz-musikcube-3.0.4/share/musikcube/plugins/libnullout.so
+22:22:49 [info] [PluginFactory] loaded: /nix/store/nvkn7qf1icnr6nkmr2447vfl1h3pvhmz-musikcube-3.0.4/share/musikcube/plugins/libmpris.so
+22:22:49 [info] [PluginFactory] loaded: /nix/store/nvkn7qf1icnr6nkmr2447vfl1h3pvhmz-musikcube-3.0.4/share/musikcube/plugins/libopenmptdecoder.so
+22:22:49 [info] [PluginFactory] loaded: /nix/store/nvkn7qf1icnr6nkmr2447vfl1h3pvhmz-musikcube-3.0.4/share/musikcube/plugins/libstockencoders.so
+22:22:49 [info] [PluginFactory] loaded: /nix/store/nvkn7qf1icnr6nkmr2447vfl1h3pvhmz-musikcube-3.0.4/share/musikcube/plugins/libpulseout.so
+22:22:49 [info] [PluginFactory] loaded: /nix/store/nvkn7qf1icnr6nkmr2447vfl1h3pvhmz-musikcube-3.0.4/share/musikcube/plugins/libportaudioout.so
+22:22:49 [info] [PluginFactory] loaded: /nix/store/nvkn7qf1icnr6nkmr2447vfl1h3pvhmz-musikcube-3.0.4/share/musikcube/plugins/libffmpegdecoder.so
+22:22:49 [info] [PluginFactory] loaded: /nix/store/nvkn7qf1icnr6nkmr2447vfl1h3pvhmz-musikcube-3.0.4/share/musikcube/plugins/libalsaout.so
+22:22:49 [info] [PluginFactory] loaded: /nix/store/nvkn7qf1icnr6nkmr2447vfl1h3pvhmz-musikcube-3.0.4/share/musikcube/plugins/libpipewireout.so
+22:22:49 [info] [PluginFactory] loaded: /nix/store/nvkn7qf1icnr6nkmr2447vfl1h3pvhmz-musikcube-3.0.4/share/musikcube/plugins/libgmedecoder.so
+22:22:49 [info] [PluginFactory] loaded: /nix/store/nvkn7qf1icnr6nkmr2447vfl1h3pvhmz-musikcube-3.0.4/share/musikcube/plugins/libsupereqdsp.so
+22:22:49 [info] [PluginFactory] loaded: /nix/store/nvkn7qf1icnr6nkmr2447vfl1h3pvhmz-musikcube-3.0.4/share/musikcube/plugins/libserver.so
+22:22:49 [info] [PluginFactory] loaded: /nix/store/nvkn7qf1icnr6nkmr2447vfl1h3pvhmz-musikcube-3.0.4/share/musikcube/plugins/libsndioout.so
+22:22:51 [info] [PortAudioOut] Pa_Initialize() return code: 0
+22:22:51 [info] [PipeWireOut] shutdown started
+22:22:51 [info] [PipeWireOut] shutdown complete
+22:22:51 [warning] [PortAudioOut] Pa_AbortStream() return code: -9988
+22:22:51 [warning] [PortAudioOut] Pa_CloseStream() return code: -9988
+22:22:51 [info] [PortAudioOut] Pa_Terminate() return code: 0
+22:22:51 [info] [Indexer] indexer source 155697690 running...
+22:22:51 [info] [Indexer] indexer source 155697690 finished
+22:22:51 [info] [Indexer] indexer source -1303229654 running...
+22:22:51 [info] [Indexer] indexer source -1303229654 finished
+22:22:51 [info] [Indexer] scan completed successfully
+22:22:51 [info] [Indexer] cleanup 1/2
+22:22:51 [info] [Indexer] cleanup 2/2
+22:22:51 [info] [Indexer] optimizing
+22:22:51 [info] [Indexer] done!
+22:22:51 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' enqueued
+22:22:51 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' running
+22:22:51 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' finished with status=4
+22:22:51 [info] [PortAudioOut] Pa_Initialize() return code: 0
+22:22:51 [info] [PipeWireOut] shutdown started
+22:22:51 [info] [PipeWireOut] shutdown complete
+22:22:51 [warning] [PortAudioOut] Pa_AbortStream() return code: -9988
+22:22:51 [warning] [PortAudioOut] Pa_CloseStream() return code: -9988
+22:22:51 [info] [PortAudioOut] Pa_Terminate() return code: 0
+22:22:51 [info] [PortAudioOut] Pa_Initialize() return code: 0
+22:22:51 [info] [PipeWireOut] shutdown started
+22:22:51 [info] [PipeWireOut] shutdown complete
+22:22:51 [warning] [PortAudioOut] Pa_AbortStream() return code: -9988
+22:22:51 [warning] [PortAudioOut] Pa_CloseStream() return code: -9988
+22:22:51 [info] [PortAudioOut] Pa_Terminate() return code: 0
+22:22:54 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:22:54 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:22:54 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:22:54 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:22:54 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:22:54 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:22:54 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:22:54 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:22:54 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:22:54 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=5
+22:22:54 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:22:54 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=5
+22:22:54 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:22:54 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:22:54 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:22:54 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:22:54 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:22:54 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:00 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:00 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:00 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:00 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:00 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:00 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:00 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:00 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:00 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:01 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:01 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:01 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:01 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:01 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:01 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:01 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:01 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:01 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:02 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:02 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:02 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:02 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:02 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:02 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:02 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:02 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:02 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:10 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:10 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:10 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:10 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:10 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:10 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:10 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:10 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:10 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:11 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:11 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:11 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:11 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:11 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:11 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:11 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:11 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:11 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:16 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:16 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:16 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:20 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:20 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:20 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:20 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:20 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:20 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:20 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:20 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=5
+22:23:20 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:20 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=5
+22:23:20 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:20 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=5
+22:23:20 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:20 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:20 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:20 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:20 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:20 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:23 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:23 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:23 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:23 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:23 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:23 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:23 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:23 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:23 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:23 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:23 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:23 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:23 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:23 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:23 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:23 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:23 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:23 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:25 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:25 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:25 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:25 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:25 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:25 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:25 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:25 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:25 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:27 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:27 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:27 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:27 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:27 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:27 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:27 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:27 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:27 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:27 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:27 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:27 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
+22:23:27 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:27 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:27 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:27 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:27 [info] [LocalLibrary] query 'CategoryListQuery' running
+22:23:27 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
+22:23:31 [info] [PortAudioOut] Pa_Initialize() return code: 0
+22:23:31 [info] [PipeWireOut] shutdown started
+22:23:31 [info] [PipeWireOut] shutdown complete
+22:23:31 [warning] [PortAudioOut] Pa_AbortStream() return code: -9988
+22:23:31 [warning] [PortAudioOut] Pa_CloseStream() return code: -9988
+22:23:31 [info] [PortAudioOut] Pa_Terminate() return code: 0
+22:23:31 [info] [PortAudioOut] Pa_Initialize() return code: 0
+22:23:31 [info] [PipeWireOut] shutdown started
+22:23:31 [info] [PipeWireOut] shutdown complete
+22:23:31 [warning] [PortAudioOut] Pa_AbortStream() return code: -9988
+22:23:31 [warning] [PortAudioOut] Pa_CloseStream() return code: -9988
+22:23:31 [info] [PortAudioOut] Pa_Terminate() return code: 0
+22:23:31 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' enqueued
+22:23:31 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' running
+22:23:31 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' finished with status=4
+22:23:31 [info] [GaplessTransport] stop

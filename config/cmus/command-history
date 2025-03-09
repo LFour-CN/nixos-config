@@ -1,0 +1,25 @@
+q
+bind -f common ] vol +0 +1%
+set color_error=lightred
+a /home/nixos/Music
+set mouse=false
+set mouse=true
+set color_win_inactive_sel_bg=default
+fset unheard=play_count=0
+fset ogg-or-mp3=ogg|mp3
+colorscheme green
+colorscheme zenburn
+colorscheme solarized-dark
+colorscheme night
+colorscheme jellybeans
+colorscheme illyria-dark
+colorscheme gruvbox
+colorscheme gruvbox_redux
+colorscheme gruvbox-night
+colorscheme gruvbox-alt
+colorscheme groove_grove
+colorscheme gray-mono-88
+colorscheme gray-88
+colorscheme default
+colorscheme cyan
+colorscheme dracula
