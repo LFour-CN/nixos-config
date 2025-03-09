@@ -57,7 +57,7 @@
     gcc-arm-embedded
     gcc
     gdb
-    #lldb
+    lldb
     cmake
     clang
     direnv
@@ -73,7 +73,7 @@
     libclang
     openocd
     stlink
-    #riscv-pk
+    coreutils-full
     uclibc-ng
     sail-riscv-rv64
   ];

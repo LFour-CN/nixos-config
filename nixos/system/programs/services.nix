@@ -45,5 +45,9 @@
     '';
   };
   environment.systemPackages = [ pkgs.flatpak-builder ];
-  
+
+  #systemd.services.swww-daemon = {
+  #enable = true;
+    #wantedBy = [ "multi-user.target" ];
+    #  };
 }
