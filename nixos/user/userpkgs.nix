@@ -25,7 +25,7 @@
     pkgs.qq
     pkgs.wechat-uos
     #pkgs.feishu
-    pkgs.bilibili
+    #pkgs.bilibili
     wiliwili
     gimp-with-plugins
     krita
@@ -35,6 +35,7 @@
     bitcomet
     netease-cloud-music-gtk
     libsForQt5.okular
+    pkgs.wpsoffice
 
 ###### Study ##################################
 
@@ -54,7 +55,7 @@
 
     arduino
     freecad-wayland
-    #pkgs.kicad
+    pkgs.kicad
     stm32cubemx
 
 ###### Wine ##################

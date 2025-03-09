@@ -50,9 +50,9 @@
       ms-vscode.cmake-tools
       ms-vscode.anycode
       mkhl.direnv
-      #vadimcn.vscode-lldb
+      vadimcn.vscode-lldb
       twxs.cmake
-      ms-python.python
+      #ms-python.python
       ms-python.debugpy
       ms-python.pylint
       ms-python.vscode-pylance

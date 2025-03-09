@@ -1,0 +1,21 @@
+{
+  imports = [
+    ./comment.nix
+    ./completion.nix
+    ./debugging.nix
+    ./friendly-snippets.nix
+    ./gitblame.nix
+    ./harpoon.nix
+    ./jdtls.nix
+    ./lazygit.nix
+    ./lint.nix
+    ./lsp.nix
+    ./luasnip.nix
+    ./markdown-preview.nix
+    ./misc.nix
+    ./neogen.nix
+    ./nix.nix
+    ./todo.nix
+    ./trouble.nix
+  ];
+}
