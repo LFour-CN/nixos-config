@@ -23,21 +23,23 @@
       inputs.nixpkgs.follows = "nixpkgs";
       };
 
+    swww.url = "github:LGFae/swww";
+
     #vscodium-server.url = "github:unicap/nixos-vscodium-server";
 
  };
 
   outputs =
-  {  self, nixpkgs, home-manager, nixvim, flake-parts, neovim-nightly-overlay, auto-cpufreq, ... }@inputs:
+  {  self, nixpkgs, home-manager, nixvim, flake-parts, neovim-nightly-overlay, auto-cpufreq, swww, ... }@inputs:
     {
      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
-          inherit inputs;
+          inherit inputs;     
         };
         modules = [
 
-          nixvim.nixosModules.nixvim
+          #nixvim.nixosModules.nixvim
 
           #nixvim.homeManagerModules.nixvim
 
@@ -80,7 +82,6 @@
           ./system/programs/environment-variables.nix
           ./system/programs/lsp.nix
           ./system/programs/networks.nix
-          ./system/programs/nixvim/nixvim.nix
           ./system/programs/openssh.nix
           ./system/programs/powermanager.nix
           ./system/programs/programs.nix

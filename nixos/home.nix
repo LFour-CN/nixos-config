@@ -10,6 +10,7 @@
   imports = [
     ./user/programs.nix
     ./user/llm.nix
+    #./user/nixvim/nixvim.nix
     ./user/theme.nix
     ./user/userpkgs.nix
   ];
