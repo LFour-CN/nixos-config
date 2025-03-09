@@ -194,4 +194,38 @@ return {
       },
     },
   },
+
+  "nvim-neo-tree/neo-tree.nvim",
+  branch = "v3.x",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-tree/nvim-web-devicons",
+    "MunifTanjim/nui.nvim",
+    -- 可选依赖
+    "s1n7ax/nvim-window-picker",
+    "lewis6991/gitsigns.nvim",
+  },
+  config = function()
+    require("neo-tree").setup({
+      window = {
+        width = 10, -- 按需调整宽度
+      },
+      -- 其他配置项
+      sources = { "filesystem", "buffers", "git_status", "document_symbols" },
+      open_files_do_not_replace_types = { "terminal", "Trouble", "qf", "Outline" },
+      filesystem = {
+        bind_to_cwd = false,
+        follow_current_file = { enabled = true },
+        use_libuv_file_watcher = true,
+      },
+      default_component_configs = {
+        indent = {
+          with_expanders = true,
+          expander_collapsed = "",
+          expander_expanded = "",
+          expander_highlight = "NeoTreeExpander",
+        },
+      },
+    })
+  end,
 }
