@@ -25,12 +25,14 @@
 
     swww.url = "github:LGFae/swww";
 
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
+
     #vscodium-server.url = "github:unicap/nixos-vscodium-server";
 
  };
 
   outputs =
-  {  self, nixpkgs, home-manager, nixvim, flake-parts, neovim-nightly-overlay, auto-cpufreq, swww, ... }@inputs:
+  {  self, nixpkgs, home-manager, nixvim, flake-parts, neovim-nightly-overlay, auto-cpufreq, swww, emacs-overlay, ... }@inputs:
     {
      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -39,7 +41,7 @@
         };
         modules = [
 
-          #nixvim.nixosModules.nixvim
+          nixvim.nixosModules.nixvim
 
           #nixvim.homeManagerModules.nixvim
 
@@ -50,12 +52,12 @@
           home-manager.nixosModules.home-manager
           {
               home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
+                useGlobalPkgs = true;
+                useUserPackages = true;
                 #sharedModules = [ nixvim.homeManagerModules.nixvim ];
                 users.nixos = import ./home.nix;
-          };
-     }
+              };
+          }
 
           ###### Hardware Configuration ###########
 
@@ -88,6 +90,7 @@
           ./system/programs/secure.nix
           ./system/programs/services.nix
           ./system/programs/virtualisation.nix
+          ./system/programs/nixvim/nixvim.nix
           ./system/programs/nix-security-box/nix-security-box.nix
 
           ################################
