@@ -41,7 +41,7 @@
         };
         modules = [
 
-          nixvim.nixosModules.nixvim
+          #nixvim.nixosModules.nixvim
 
           #nixvim.homeManagerModules.nixvim
 
@@ -54,7 +54,7 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                #sharedModules = [ nixvim.homeManagerModules.nixvim ];
+                sharedModules = [ nixvim.homeManagerModules.nixvim ];
                 users.nixos = import ./home.nix;
               };
           }
@@ -90,7 +90,6 @@
           ./system/programs/secure.nix
           ./system/programs/services.nix
           ./system/programs/virtualisation.nix
-          ./system/programs/nixvim/nixvim.nix
           ./system/programs/nix-security-box/nix-security-box.nix
 
           ################################
