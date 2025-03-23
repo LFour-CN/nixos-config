@@ -17,4 +17,4 @@
 
   1. The configuration of Nixvim still needs improvement to provide a better programming and development environment.
   2. For nix-security-box, I have disabled all of its configurations (although I have also removed or added some content to provide personalization), and you are expected to consider whether to enable or disable some of these options.Meanwhile, I also summarized the functions of these software using AI (in Chinese).
-  3. If you want to use lazyvim, you can change nvim.bak(in .config) to nvim.
+  3. For nixvim, I use Lazyvim to manager my plugins, also, I chanage some ocnfig like keys and dashboard, see nixos/user/nixvim.nix.
