@@ -2,26 +2,17 @@
 
 {
 
-  #enable flake
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  # Enable flake
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # Emulate x86 machinee to enable x86 support
+  #boot.binfmt.emulatedSystems = [ "i686-linux" ];
 
   # A Kernel for high performance,but at the cost of sacrificing memory and power supply
   #boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
   # Linux Latest Kernel
-  #boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  # NixOS Swap
-  # zramSwap.enable = true;
-
-  #nix-collect-garbage
-  nix.settings.auto-optimise-store = true;
-  nix.optimise.automatic = true;
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
-  };
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Fonts
   system.fsPackages = [ pkgs.bindfs ];
@@ -33,10 +24,11 @@
     };
     aggregatedIcons = pkgs.buildEnv {
       name = "system-icons";
-      paths = with pkgs; [
-        libsForQt5.breeze-qt5  # for plasma
-        #gnome.gnome-themes-extra
-      ];
+      paths = with pkgs;
+        [
+          libsForQt5.breeze-qt5 # for plasma
+          #gnome.gnome-themes-extra
+        ];
       pathsToLink = [ "/share/icons" ];
     };
     aggregatedFonts = pkgs.buildEnv {
@@ -49,11 +41,20 @@
     "/usr/local/share/fonts" = mkRoSymBind "${aggregatedFonts}/share/fonts";
   };
 
+  console = {
+    earlySetup = true;
+    font = "${pkgs.terminus_font}/share/consolefonts/ter-m18b.psf.gz";
+    packages = with pkgs; [ terminus_font ];
+    keyMap = "us";
+  };
   fonts.fontDir.enable = true;
   fonts.fontconfig.useEmbeddedBitmaps = true;
   fonts.packages = with pkgs; [
     jetbrains-mono
+    maple-mono.NF 
     nerd-font-patcher
+    noto-fonts
+    noto-fonts-cjk-sans
     noto-fonts-color-emoji
   ];
 

@@ -1,12 +1,11 @@
-{ config, lib, pkgs, inputs, nixpkgs, ... }:
-{
+{ config, lib, pkgs, inputs, nixpkgs, ... }: {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
 
-###### START ################
+    ###### START ################
     #(nixpkgs.legacyPackages.x86_64-linux.linux.override { stdenv = nixpkgs.legacyPackages.x86_64-linux.clangStdenv; })
-######default############
+    ######default############
 
     vim
     wget
@@ -23,11 +22,9 @@
     btop
     electron
     asciiquarium
-    cowsay
     brightnessctl
     alsa-utils
-    cmus
-    flac
+    ncmpcpp
     coreutils-full
     pavucontrol # PulseAudio Volume Control
     pamixer # Command-line mixer for PulseAudio
@@ -35,7 +32,6 @@
     bluez-tools # Bluetooth tools
     klibcShrunk
     ffmpeg-full
-    mplayer
     glib-networking
     ranger
     ghostty
@@ -45,15 +41,13 @@
     lynx
     w3m
 
-###### Daily #############
+    ###### Daily #############
 
     nemo
     peazip
     p7zip
     pkgs.zsh
     pkgs.fish
-    tmux
-    polybar
     htop
     starship
     gedit
@@ -64,9 +58,8 @@
     tlp
     lshw
     p7zip
-    chromium
 
-###### Hyprland ###########
+    ###### Hyprland ###########
 
     hyprland
     hyprutils
@@ -85,44 +78,43 @@
     wlogout
     dunst
     hyprshade
-    hyprlang 
+    hyprlang
     luarocks
     fzf
     ripgrep
-    fd 
+    fd
     inputs.swww.packages.${pkgs.system}.swww
 
-###### Nix ####################
+    ###### Nix ####################
 
-###### C & C++ ################
+    ###### C & C++ ################
 
-    gcc
-    gdb
+    gcc_multi 
+    #glibc_multi 
+    #gccStdenv 
+    gdb 
     cmake
-    direnv
-    gnumake 
-    glibcLocales 
+    gnumake
     llvmPackages_latest.clang-tools
     llvmPackages_latest.lldb
     llvmPackages_latest.libllvm
-    llvmPackages_latest.libcxx 
-    llvmPackages_latest.clang 
+    llvmPackages_latest.libcxx
+    llvmPackages_latest.clang
 
-###### JAVA ##################
+    ###### JAVA ##################
 
     zulu23
 
-###### Embedded Development ######
+    ###### Embedded Development ######
     #
     gcc-arm-embedded
     platformio
     openocd
     pkgs.dotnet-sdk
     pkgs.dotnet-runtime
-    uclibc-ng
-   #
-   ### STM32 ###
-   #
+    #
+    ### STM32 ###
+    #
     stlink
     stm32flash
     stm32loader
@@ -133,27 +125,28 @@
     #
     esptool
     espflash
-    arduino-language-server
     #
-###### Python #################
+    ###### Python #################
 
     python3Full
 
-
-###### MySQL ##################
+    ###### MySQL ##################
 
     mariadb
     mysql-shell
 
-###### NodeJS #################
+    ###### NodeJS #################
 
     nodejs
 
-###### Rust ###################
+    ###### Rust ###################
 
     cargo
     rustc
+    ###### GO ####################
 
-###### END ###################
-   ];
+    direnv
+
+    ###### END ###################
+  ];
 }
