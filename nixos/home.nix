@@ -9,8 +9,8 @@
 
   imports = [
     ./user/programs.nix 
-    ./user/llm.nix
-    ./user/nixvim.nix
+    ./user/llm.nix 
+    ./user/nixvim.nix 
     ./user/theme.nix 
     ./user/userpkgs.nix 
   ];

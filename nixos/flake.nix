@@ -16,8 +16,6 @@
 
     flake-parts.url = "github:hercules-ci/flake-parts";
 
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-
     auto-cpufreq = {
       url = "github:AdnanHodzic/auto-cpufreq";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,24 +23,19 @@
 
     swww.url = "github:LGFae/swww";
 
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
-
     flake-utils.url = "github:numtide/flake-utils";
 
-    blink-cmp = {
-      url = "github:saghen/blink.cmp";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
 
  };
 
   outputs =
-  { self, nixpkgs, home-manager, nixvim, flake-parts, neovim-nightly-overlay, auto-cpufreq, swww, emacs-overlay, flake-utils, blink-cmp, ... }@inputs:
+  { self, nixpkgs, home-manager, nixvim, flake-parts, auto-cpufreq, swww, flake-utils, nix-doom-emacs, ... }@inputs:
     {
      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
-            inherit inputs self nixpkgs;
+            inherit inputs;
         };
         modules = [
 
@@ -56,8 +49,16 @@
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 sharedModules = [ nixvim.homeManagerModules.nixvim ];
-                users.nixos = import ./home.nix;
-                #extraSpecialArgs = inputs;
+                users.nixos = { pkgs, ... }: {
+                    imports = [
+                      ./home.nix
+                       nix-doom-emacs.hmModule
+                    ];
+                # programs.doom-emacs = {
+                #          enable = true;
+                #          doomPrivateDir = /home/nixos/doom.d;
+                #     };
+                };
               };
           }
 
@@ -84,7 +85,7 @@
           ###### System Programs ###############
 
           ./system/programs/environment-variables.nix 
-          ./system/programs/development.nix
+          #./system/programs/development.nix
           ./system/programs/lsp.nix 
           ./system/programs/networks.nix 
           ./system/programs/openssh.nix 
