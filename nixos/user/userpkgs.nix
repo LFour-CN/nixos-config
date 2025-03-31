@@ -1,6 +1,8 @@
 {pkgs, ...}:
 {
 
+
+
  home.packages = with pkgs;[
 
 ###### START ################
@@ -21,12 +23,13 @@
 
 ###### Daily ################
 
+    chromium
     firefox
     pkgs.qq
     pkgs.wechat-uos
-    #pkgs.feishu
-    bilibili
-    wiliwili
+    (bilibili.overrideAttrs (oldAttrs: {
+      version = "1.16.3";
+    }))
     gimp-with-plugins
     krita
     inkscape-with-extensions
@@ -34,28 +37,22 @@
     motrix
     bitcomet
     netease-cloud-music-gtk
-    libsForQt5.okular
-    #pkgs.wpsoffice
+    libsForQt5.okular 
 
 ###### Study ##################################
 
     #pkgs.geogebra
     ventoy-full
     shotcut
-    #lmstudio
-    #pkgs.jetbrains.clion
-    #pkgs.jetbrains.pycharm-professional
-    #pkgs.jetbrains.writerside
-    #pkgs.jetbrains.webstorm
-    #pkgs.jetbrains.pycharm-community
-    #pkgs.jetbrains.idea-community
-    #pkgs.jetbrains.jdk
-    #pkgs.jetbrains.jcef
 
 ###### Embedded development ###################
 
-    #arduino
-    arduino-ide
+    arduino-core 
+    arduinoOTA 
+    arduino-mk 
+    arduino-ci 
+    arduino-cli 
+    arduino-ide 
     #freecad-wayland
     #kicad
     stm32cubemx
@@ -66,8 +63,6 @@
     winetricks
     # support both 32-bit and 64-bit applications
     wineWowPackages.stable
-    # native wayland support (unstable)
-    #wineWowPackages.waylandFull
 
 ###### Mind-Mapping #########
 

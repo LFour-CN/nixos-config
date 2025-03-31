@@ -1,18 +1,5 @@
-{config, lib, pkgs, callPackage, emacs-overlay, ...}:
+{ pkgs, ...}:
 {
-
-  programs.emacs = {
-    enable = true;
-    package = pkgs.emacs;  # replace with pkgs.emacs-gtk, or a version provided by the community overlay if desired.
-    extraConfig = ''
-      (setq standard-indent 2)
-    '';
-  };
-
-  services.emacs = {
-    enable = true;
-    package = pkgs.emacs; # replace with emacs-gtk, or a version provided by the community overlay if desired.
-  };
 
   programs.vscode = {
     enable = true;
@@ -33,7 +20,7 @@
       ms-python.python
       ms-python.debugpy
       ms-python.pylint
-      ms-python.vscode-pylance
+      #ms-python.vscode-pylance
     ];
   };
 
