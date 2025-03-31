@@ -1,5 +1,4 @@
-{ lib, pkgs, config, ...}:
-{
+{ callPackage, pkgs, config, emacs-overlay, ... }: {
 
   # Enable Java
   programs.java.enable = true;
@@ -8,9 +7,7 @@
   programs.direnv.enable = true;
 
   # Enable Steam
-  programs.steam = {
-  enable = true;
-  };
+  programs.steam = { enable = true; };
 
   # Enable fish
   programs.fish = {
@@ -28,13 +25,19 @@
       blon = "bluetooth on";
       blof = "bluetooth off";
       blctl = "bluetoothctl";
+      vol = "alsamixer";
     };
   };
 
-  # Enable tmux
-  programs.tmux = {
-    enable = true;
-  };
+  # Emacs
+  services.emacs.enable = true;
+  services.emacs.package = pkgs.emacs-unstable;
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball {
+      url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
+      sha256 = "0anyp6miavan9js15jk7y6h4xgxd7i891q8sbfwg8drjmws6khj6";
+    }))
+  ];
 
   # Neovim
   environment.variables.EDITOR = "nvim";
@@ -45,32 +48,30 @@
   };
 
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
+  #programs.nix-ld.libraries = with pkgs; [
     # Add any missing dynamic libraries for unpackaged programs here, NOT in environment.systemPackages
-    gcc-arm-embedded 
-    gcc 
-    gdb 
-    cmake 
-    direnv 
-    flac 
-    gnumake 
-    zulu23 
-    mariadb 
-    nodejs 
-    cargo 
-    rustc 
-    hyprutils 
-    libcamera 
-    openocd 
-    stlink 
-    coreutils-full 
-    uclibc-ng
-    ccls 
-    llvmPackages_latest.clang-tools 
-    llvmPackages_latest.lldb 
-    llvmPackages_latest.libllvm 
-    llvmPackages_latest.libcxx 
-    llvmPackages_latest.clang 
-    
-  ];
+    #gcc-arm-embedded
+    #gcc_multi 
+    #glibc_multi 
+    #gccStdenv 
+    #gdb
+    #cmake
+    #direnv
+    #gnumake
+    #zulu23
+    #mariadb
+    #nodejs
+    #cargo
+    #rustc
+    #hyprutils
+    #libcamera
+    #openocd
+    #stlink
+    #coreutils-full
+    #llvmPackages_latest.clang-tools
+    #llvmPackages_latest.lldb
+    #llvmPackages_latest.libllvm
+    #llvmPackages_latest.libcxx
+    #llvmPackages_latest.clang
+  #];
 }

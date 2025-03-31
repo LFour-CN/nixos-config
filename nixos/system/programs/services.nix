@@ -1,4 +1,4 @@
-{ config, pkgs, ...}:
+{ pkgs, ...}:
 {
 
   #systemd.enableUserServices = true;
@@ -9,7 +9,7 @@
   # settings = {
   #    INTERNET_IFACE = "enp4s0";
     #    WIFI_IFACE = "wlan0";
-    #    SSID = "NixOS-Linux-6.6.69";
+    #    SSID = "NixOS-Linux-6.14.0";
     #    PASSPHRASE = "ex114514";
     #};
   # };
@@ -37,6 +37,36 @@
     '';
   };
 
+  services.mpd = {
+    enable = true;
+    user = "nixos"; 
+    musicDirectory = "/home/nixos/Music";
+    # Optional:
+    network.listenAddress = "any"; # if you want to allow non-localhost connections
+    startWhenNeeded = true; # systemd feature: only start MPD service upon connection to its socket
+    extraConfig = ''
+        audio_output {
+          type "pipewire"
+          name "PipeWire Output"
+        }
+      '';
+    };
+
+  systemd.services.mpd.environment = {
+    XDG_RUNTIME_DIR = "/run/user/1000";
+  };
+
+  systemd.user.services.swww-daemon = {
+    enable = true;
+    after = [ "network.target" ];
+    wantedBy = [ "default.target" ];
+    description = "Nixos swww-daemon User Service";
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = ''/run/current-system/sw/bin/swww-daemon'';
+    };
+  };
+
   #services.flatpak.enable = true;
   #systemd.services.flatpak-repo = {
   #  wantedBy = [ "multi-user.target" ];
@@ -46,5 +76,9 @@
   #  '';
   #};
   #environment.systemPackages = [ pkgs.flatpak-builder ];
+
+  environment.systemPackages = with pkgs; [
+      mpc-cli
+  ];
 
 }

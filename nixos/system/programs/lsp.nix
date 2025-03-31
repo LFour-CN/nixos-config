@@ -11,13 +11,14 @@
     nodePackages_latest.bash-language-server
     vue-language-server
     sumneko-lua-language-server
-    marksman
+    marksman 
+    coc-clangd 
+    vimPlugins.clangd_extensions-nvim 
     markdown-oxide
     nil
     zls
     gopls
     delve 
-    ccls 
     emmet-language-server
     buf 
     cmake-language-server
