@@ -5,7 +5,7 @@
     "spacing": 6,
     "modules-left": ["hyprland/workspaces","idle_inhibitor","backlight","tray"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["pulseaudio", "memory", "cpu", "battery","clock"],
+    "modules-right": ["pulseaudio", "memory", "cpu", "temperature", "battery","clock"],
     
     "wlr/workspaces": {
         "format": "{icon}",
@@ -16,8 +16,8 @@
     },
     
      "backlight": {
-        "format": "  {percent}% {icon}       ",
-        "format-icons": [   ""   ,   ""   ]
+        "format": "  {percent}% {icon}  ",
+        "format-icons": ["",""]
     },
     
         "battery": {
@@ -26,10 +26,10 @@
             "warning": 30,
             "critical": 15
         },
-        "format": " {capacity}% {icon}    ",
-        "format-full": " {capacity}% {icon}    ",
-        "format-charging": " {capacity}%     ",
-        "format-plugged": " {capacity}%       ",
+        "format": " {capacity}% {icon}  ",
+        "format-full": "  {capacity}% {icon}  ",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
@@ -56,7 +56,7 @@
     },
 
     "tray": {
-        "icon-size": 21,
+        "icon-size": 16,
         "spacing": 10
     },
         // Clock
@@ -88,11 +88,18 @@
         "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "              ",
-            "deactivated": "            "
+            "activated": "     ",
+            "deactivated": "     "
         }
     },
-    
+ 
+    	"temperature": {
+        "interval": 1,
+        "tooltip": false,
+        "format": "   {temperatureC}°C  ",
+    	},
+
+
     "pulseaudio": {
         "scroll-step": 5,
         "format": "{icon} {volume}%",

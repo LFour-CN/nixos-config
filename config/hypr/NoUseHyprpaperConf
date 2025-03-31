@@ -1,5 +1,5 @@
 # You can find more wallpapers in ~/.config/ml4w/wallpapers/
 # Run ~/.config/hypr/reload-hyprpaper.sh after changing your wallpaper
-preload = $HOME/wallpapers/black.png
-wallpaper = , $HOME/wallpapers/black.png
+preload = $HOME/wallpapers/wallpaper0.png
+wallpaper =HDMI-A-1, $HOME/wallpapers/wallpaper0.png
 ipc = off
